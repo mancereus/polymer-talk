@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>polymer Local Dom</title>
+    <link rel="import" href="../bower_components/google-map/google-map.html">
+    <link rel="import" href="../bower_components/google-map/google-map-poly.html">
+
+    <style>
+        google-map {
+            height: 800px;
+            width: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>google maps</h2>
+    <template is="dom-bind">
+        <label for="color">Farbe:</label>
+        <select name="color" value="{{color::input}}">
+            <option value="blue">Blau</option>
+            <option value="red">Rot</option>
+            <option value="green">Grün</option>
+        </select>
+        <google-map latitude="50.912587" longitude="7.080593" fit-to-markers>
+            <google-map-marker latitude="50.912587" longitude="7.080593" title="SCOOP Köln"></google-map-marker>
+            <google-map-marker latitude="53.551924" longitude="9.992161" title="SCOOP Hamburg"></google-map-marker>
+            <google-map-marker latitude="50.083630" longitude="8.237984" title="SCOOP Wiesbaden"></google-map-marker>
+            <google-map-poly closed fill-color="{{color}}" fill-opacity=".25" stroke-weight="1">
+                <google-map-point latitude="50.912587" longitude="7.080593" title="SCOOP Köln"></google-map-point>
+                <google-map-point latitude="53.551924" longitude="9.992161" title="SCOOP Hamburg"></google-map-point>
+                <google-map-point latitude="50.083630" longitude="8.237984" title="SCOOP Wiesbaden"></google-map-point>
+            </google-map-poly>
+        </google-map>
+    </template>
+</body>
+
+</html>
