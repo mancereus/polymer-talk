@@ -62,16 +62,32 @@
                     <li>GWT</li>
                     <li>Dart</li>
                     <li>Angular</li>
+                    <li>(React?)</li>
                 </ul>
                 <aside class="notes">
-                    jQuery zu alt, Anforderung an Webanwendugnen wachsen
+                    jQuery zu alt, Anforderung an Webanwendungen wachsen
                 </aside>
             </section>
             <section>
-                <h2>Was ist anders?</h2>
+                <h2>Anforderungen an ein Web Framework</h2>
                 <ul>
-                    <li>Web Components: offizieller Html5 Standard</li>
-                    <li>Polymer: beste Implementierung</li>
+                    <li>möglichst nah an Browser engine.</li>
+                    <li>wenig Abstraktionschicht dazwischen.</li>
+                    <li>Html aus Html files. (nicht jsf,jsx,...) Html soll auch wie html aussehen.</li>
+                    <li>css aus css files. (oder sass, less,..)</li>
+                    <li>js möglichst schlank und einfach. (evtl. ES2015 und Transpiler)</li>
+                    <li>möglichst wenig Framework </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Worum gehts diesmal?</h2>
+                <ul>
+                    <li>Spezifikation:    http://webcomponents.org/</li>
+                    <li>Implementierung: https://www.polymer-project.org/1.0/ </li>
+                    <li>deklarative Programmierung</li>
+                    <li>data binding</li>
+                    <li>kein vollständiges Framework</li>
+                    <li>Erstellung neuer HTML Elemente</li>
                 </ul>
             </section>
             <section>
@@ -95,7 +111,7 @@
                 <img data-src="img/html.gif" >
             </section>
             <section>
-                <h2>Web Components</h2>
+                <h2>Theorie: Web Components</h2>
                 <p>Web Components ermöglicht die Erzeugung neuer Elemente.</p>
                 <table>
                     <tr>
@@ -187,22 +203,51 @@
             </section>
 
             <section>
-                <h2>Browser Unterstützung</h2>
-                <img width="900" data-src="img/wc_status.png" alt="Status">
-                <p>Polyfill ermöglicht den Einsatz in "allen" Browsern.</p>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
+
             </section>
 
             <section>
-                <h2>Polyfill Browser Unterstützung</h2>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
+
+            </section>
+
+            <section>
+                <h2>Browser Unterstützung</h2>
+                <img width="900" data-src="img/wc_status.png" alt="Status">
+            </section>
+
+            <section>
+                <h2>Polyfill</h2>
+                <p>Polyfill ermöglicht den Einsatz in "allen" Browsern.</p>
                 <img width="900" data-src="img/Browsersupport.png" alt="Status">
             </section>
+
+            <section>
+                <h2>Polyfill</h2>
+                <p>webcomponents-lite.js <br>für Custom-elements aund html-import</p>
+                <code><pre>&lt;script src="webcomponentsjs/webcomponents-lite.js"/></pre></code>
+                <p>webcomponents.js für alle 4 Specs <br>plus ES6 Weak-Maps und Mutation Observer</p>
+                <code><pre>&lt;script src="webcomponentsjs/webcomponents.js"/></pre></code>
+            </section>
+
+            <section>
+                <h2>Praxis: Polymer</h2>
+                <ul>
+                    <li>Library zum Erstellen von Web Components</li>
+                    <li>implementiert WebComponents Specs</li>
+                    <li>versteckt umständlichen Web Components Code.</li>
+                    <li>kann auch vollständige SPA erstellen.</li>
+                </ul>
+            </section>
+
 
             <section>
                 <h2>Beispiel</h2>
                 <ul>
                     <li><a href="demo/googlemaps.html" target="blank">Gmaps mit JS</a></li>
                     <li><a href="demo/gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
-                    <li><a href="demo/gmaps2.html" target="blank">gmaps.html dynamic</a></li>
+                    <li><a href="demo/gmaps2.html" target="blank">gmaps.html mit Polymer data binding</a></li>
                 </ul>
             </section>
 
