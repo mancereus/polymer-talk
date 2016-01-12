@@ -61,12 +61,13 @@
                     <li>jQuery</li>
                     <li>GWT</li>
                     <li>Dart</li>
-                    <li>Angular</li>
-                    <li>(React?)</li>
                 </ul>
-                <aside class="notes">
-                    jQuery zu alt, Anforderung an Webanwendungen wachsen
-                </aside>
+                <p>gerade hip:</p>
+                <ul>
+                    <li>Angular 1</li>
+                    <li>Angular 2</li>
+                    <li>React</li>
+                </ul>
             </section>
             <section>
                 <h2>Anforderungen an ein Web Framework</h2>
@@ -82,7 +83,7 @@
             <section>
                 <h2>Worum gehts diesmal?</h2>
                 <ul>
-                    <li>Spezifikation:    http://webcomponents.org/</li>
+                    <li>Spezifikation: http://webcomponents.org/</li>
                     <li>Implementierung: https://www.polymer-project.org/1.0/ </li>
                     <li>deklarative Programmierung</li>
                     <li>data binding</li>
@@ -104,7 +105,8 @@
 
             <section>
                 <h1>Theorie</h1>
-                <a href="http://webcomponents.org/">http://webcomponents.org</a><br>
+                <a href="http://webcomponents.org/">http://webcomponents.org</a>
+                <br>
                 <img data-src="img/logo.svg">
 
             </section>
@@ -115,7 +117,7 @@
                     <li>Elementtypen sind in Html Spec vorgegeben: a, input,...</li>
                     <li>Elemente haben Ansicht und Aktionen</li>
                 </ul>
-                <img data-src="img/html.gif" >
+                <img data-src="img/html.gif">
             </section>
             <section>
                 <h2>Web Components</h2>
@@ -126,15 +128,15 @@
                         <td style="vertical-align:middle">Custom Elements</td>
                     </tr>
                     <tr>
-                        <td><img style="width:50px;"  data-src="img/icon-htmlimports.png"></td>
+                        <td><img style="width:50px;" data-src="img/icon-htmlimports.png"></td>
                         <td style="vertical-align:middle">HTML Imports</td>
                     </tr>
                     <tr>
-                        <td><img style="width:50px;"  data-src="img/icon-templates.png"></td>
+                        <td><img style="width:50px;" data-src="img/icon-templates.png"></td>
                         <td style="vertical-align:middle">Templates</td>
                     </tr>
                     <tr>
-                        <td><img style="width:50px;"  data-src="img/icon-shadowdom.png"></td>
+                        <td><img style="width:50px;" data-src="img/icon-shadowdom.png"></td>
                         <td style="vertical-align:middle">Shadow Dom</td>
                     </tr>
                 </table>
@@ -160,7 +162,7 @@
             //use element x-foo
             <x-foo></x-foo>
 					</code></pre>
-                 <p>neue Elemente müssen ein "-" enthalten!</p>
+                <p>neue Elemente müssen ein "-" enthalten!</p>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-htmlimports.png"> HTML Imports</h2>
@@ -172,11 +174,12 @@
             //use element x-foo
             <x-foo></x-foo>
 					</code></pre>
-                 <p>lädt externes HTML mit css, script und anderen links</p>
+                <p>lädt externes HTML mit css, script und anderen links</p>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-templates.png"> Templates</h2>
-                <p>This specification describes a method for declaring inert DOM subtrees in HTML and manipulating them to instantiate document fragments with identical contents.</p>
+                <p>This specification describes a method for declaring inert DOM subtrees in HTML and manipulating them to instantiate
+                    document fragments with identical contents.</p>
                 <pre><code class="hljs" contenteditable >
     <table>
         <tbody>
@@ -232,9 +235,11 @@
 
             <section>
                 <h2>Polyfill</h2>
-                <p>webcomponents-lite.js <br>für Custom-elements aund html-import</p>
+                <p>webcomponents-lite.js
+                    <br>für Custom-elements aund html-import</p>
                 <code><pre>&lt;script src="webcomponentsjs/webcomponents-lite.js"/></pre></code>
-                <p>webcomponents.js für alle 4 Specs <br>plus ES6 Weak-Maps und Mutation Observer</p>
+                <p>webcomponents.js für alle 4 Specs
+                    <br>plus ES6 Weak-Maps und Mutation Observer</p>
                 <code><pre>&lt;script src="webcomponentsjs/webcomponents.js"/></pre></code>
             </section>
 
@@ -264,7 +269,8 @@
 
             <section>
                 <h1>Praxis</h1>
-                <a href="http://polymer-project.org">http://polymer-project.org</a><br>
+                <a href="http://polymer-project.org">http://polymer-project.org</a>
+                <br>
                 <img style="height: 100px;" data-src="img/polymer.svg">
 
             </section>
