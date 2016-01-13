@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+<dom-module id="greeting-name">
+    <template>
+        <style>
+            div {
+                margin: 12px;
+                width: 100px;
+                height: 30px;
+                padding: 20px;
+                border: 1px solid black;
+            }
+            /* CSS rules for your element */
+        </style>
+
+        <!-- local DOM for your element -->
+
+        <div>{{greeting}}</div>
+        <!-- data bindings in local DOM -->
+        <!--
+            <input type="text" value="{{greeting::input}}">-->
+    </template>
+    <script>
+        // element registration
+            Polymer({
+            is: "greeting-name",
+
+            // add properties and methods on the element's prototype
+
+            properties: {
+                // declare properties for the element's public API
+                greeting: {
+                type: String,
+                value: "Hello"
+                }
+            }
+            });
+    </script>
+
+</dom-module>

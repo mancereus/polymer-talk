@@ -14,7 +14,8 @@
   "dependencies": {
     "headjs": "~1.0.3",
     "google-map": "GoogleWebComponents/google-map#~1.1.7",
-    "paper-slider": "PolymerElements/paper-slider#~1.0.9"
+    "paper-slider": "PolymerElements/paper-slider#~1.0.9",
+    "paper-ripple": "PolymerElements/paper-ripple#~1.0.5"
   },
   "repository": {
     "type": "git",
