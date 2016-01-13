@@ -7,17 +7,21 @@
 
     <link rel="import" href="../bower_components/google-map/google-map.html">
     <link rel="import" href="../bower_components/google-map/google-map-poly.html">
+	<link rel="import" href="../../../bower_components/font-roboto/roboto.html">
 
     <style>
+		body {
+			font-family: Roboto, 'Noto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		}
         google-map {
-            height: 800px;
+            height: 600px;
             width: 700px;
         }
     </style>
 </head>
 
 <body>
-    <h2>google maps</h2>
+    <h2>google maps mit Polymer element</h2>
 
     <google-map latitude="50.912587" longitude="7.080593" fit-to-markers>
         <google-map-marker latitude="50.912587" longitude="7.080593" title="SCOOP Köln"></google-map-marker>

@@ -13,7 +13,8 @@
   ],
   "dependencies": {
     "headjs": "~1.0.3",
-    "google-map": "GoogleWebComponents/google-map#~1.1.7"
+    "google-map": "GoogleWebComponents/google-map#~1.1.7",
+    "paper-slider": "PolymerElements/paper-slider#~1.0.9"
   },
   "repository": {
     "type": "git",

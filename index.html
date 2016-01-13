@@ -54,7 +54,7 @@
             </section>
 
             <section>
-                <h2>Schon wieder ein JS GUI Framework?</h2>
+                <h2>Schon wieder ein JS Web Framework?</h2>
 
                 <p>Wir hatten bereits:</p>
                 <ul>
@@ -62,33 +62,40 @@
                     <li>GWT</li>
                     <li>Dart</li>
                 </ul>
-                <p>gerade hip:</p>
+                <p>aktuell beliebt:</p>
                 <ul>
-                    <li>Angular 1</li>
-                    <li>Angular 2</li>
+                    <li>Angular 1/2</li>
                     <li>React</li>
+                    <li>Web Components ?</li>
                 </ul>
             </section>
             <section>
                 <h2>Anforderungen an ein Web Framework</h2>
                 <ul>
+                    <li>früher: Server hat vollständige Seiten gerendert.</li>
+                    <li>jetzt: Single Page Application.</li>
+                    <li>Immer mehr Features sind clientseitig zu lösen.</li>
+                    <li>server liefert nur noch Daten und Sicherheitsfeatures</li>
+                    <li>neue Features: offline, locale Storage, Mobile, service-worker, progressive WebApp</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Wie sollte das Framework aufgebaut sein?</h2>
+                <ul>
                     <li>möglichst nah an Browser engine.</li>
-                    <li>wenig Abstraktionschicht dazwischen.</li>
-                    <li>Html aus Html files. (nicht jsf,jsx,...) Html soll auch wie html aussehen.</li>
+                    <li>Html aus Html files. (nicht jsf,jsx,...) </li>
                     <li>css aus css files. (oder sass, less,..)</li>
                     <li>js möglichst schlank und einfach. (evtl. ES2015 und Transpiler)</li>
-                    <li>möglichst wenig Framework </li>
+                    <li>möglichst wenig Framework.</li>
                 </ul>
             </section>
             <section>
                 <h2>Worum gehts diesmal?</h2>
                 <ul>
+                    <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
                     <li>Spezifikation: http://webcomponents.org/</li>
-                    <li>Implementierung: https://www.polymer-project.org/1.0/ </li>
-                    <li>deklarative Programmierung</li>
-                    <li>data binding</li>
-                    <li>kein vollständiges Framework</li>
-                    <li>Erstellung neuer HTML Elemente</li>
+                    <li>Implementierung: Im Browser bzw. Polyfill</li>
+                    <li>Vereinfachung mit Polymer: https://www.polymer-project.org/1.0/ </li>
                 </ul>
             </section>
             <section>
@@ -108,14 +115,13 @@
                 <a href="http://webcomponents.org/">http://webcomponents.org</a>
                 <br>
                 <img data-src="img/logo.svg">
-
+                <p>The goal of web components is to reduce complexity by isolating a related group of HTML, CSS, and JavaScript to perform a common function within the context of a single page.</p>
             </section>
             <section>
                 <h2>HTML, Document, DOM</h2>
                 <ul>
-                    <li>Browser erzeugt aus HTML document mt DOM Tree</li>
-                    <li>Elementtypen sind in Html Spec vorgegeben: a, input,...</li>
-                    <li>Elemente haben Ansicht und Aktionen</li>
+                    <li>Browser erzeugt aus HTML Elementen document mt DOM Tree</li>
+                    <li>HTML Elements sind in Spec vorgegeben: a, input,...</li>
                 </ul>
                 <img data-src="img/html.gif">
             </section>
@@ -146,6 +152,15 @@
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
                 <p>This specification describes the method for enabling the author to define and use new types of DOM elements
                     in a document.</p>
+                    <ul>
+                        <li>neue Elemente müssen ein "-" enthalten!</li>
+                        <li>document erhält eine registry, in der neue Elemente registriert werden können.</li>
+                        <li>Element Registrierung kann auch nach der Verwendung erfolgen!</li>
+                    </ul>
+            </section>
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
+                <p>Extends HTML Elements</p>
                 <pre><code class="hljs" contenteditable>
             //create element x-foo
             document.registerElement('x-foo', {
@@ -159,10 +174,59 @@
                 extends: 'p'
             });
 
+            //use element x-foo extends HTML Element p
+            <p is="x-foo">Paragraph</p>
+            </code></pre>
+                <p>Attribute aus HTML Element sind gültig. (disabled,..)</p>
+            </section>
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
+                <p>create new Elements</p>
+                <pre><code class="hljs" contenteditable>
+            //create element x-foo
+            document.registerElement('x-foo', {
+                prototype: Object.create(HTMLParagraphElement.prototype, {
+                })
+            });
+
             //use element x-foo
             <x-foo></x-foo>
+            //oder
+            var xFoo = document.createElement('x-foo');
+            //oder
+            var xFoo = new XFoo();
+            document.body.appendChild(xFoo);
 					</code></pre>
-                <p>neue Elemente müssen ein "-" enthalten!</p>
+
+            </section>
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
+                <table style="font-size: 70%">
+                    <thead>
+                        <tr>
+                            <th>Callback name</th>
+                            <th>Called when</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>createdCallback</td>
+                            <td>an instance of the element is created</td>
+                        </tr>
+                        <tr>
+                            <td>attachedCallback</td>
+                            <td>an instance was inserted into the document</td>
+                        </tr>
+                        <tr>
+                            <td>detachedCallback</td>
+                            <td>an instance was removed from the document</td>
+                        </tr>
+                        <tr>
+                            <td>attributeChangedCallback(attrName, oldVal, newVal)</td>
+                            <td>an attribute was added, removed, or updated</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-htmlimports.png"> HTML Imports</h2>
@@ -175,53 +239,116 @@
             <x-foo></x-foo>
 					</code></pre>
                 <p>lädt externes HTML mit css, script und anderen links</p>
+                <p>Mozilla will Html Import nicht umsetzen! </p>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-templates.png"> Templates</h2>
                 <p>This specification describes a method for declaring inert DOM subtrees in HTML and manipulating them to instantiate
                     document fragments with identical contents.</p>
-                <pre><code class="hljs" contenteditable >
-    <table>
+                    <ul>
+                        <li>&lt;template> ist ein html element.</li>
+                        <li>&lt;template> erzeugt ein Dokument Fragment.</li>
+                    </ul>
+            </section>
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-templates.png"> Templates</h2>
+                <pre><code class="hljs" contenteditable >     <table>
         <tbody>
-            <tr><th>Name</th><th>Colour</th><th>Sex</th><th>Legs</th></tr>
-
+            <tr><th>Name</th><th>Colour</th></tr>
             <template id="row">
-                <tr><td/><td/><td/><td/></tr>
+                <tr> <td/><td/> </tr>
             </template>
         </tbody>
     </table>
     <script>
         var template = document.querySelector('#row');
         for (var i = 0; i < data.length; i += 1) {
-        var cat = data[i];
-        var clone = template.content.cloneNode(true);
-        var cells = clone.querySelectorAll('td');
-        cells[0].textContent = cat.name;
-        cells[1].textContent = cat.color;
-        cells[2].textContent = cat.sex;
-        cells[3].textContent = cat.legs;
-        template.parentNode.appendChild(clone);
+            var cat = data[i];
+            var clone = template.content.cloneNode(true);
+            var cells = clone.querySelectorAll('td');
+            cells[0].textContent = cat.name;
+            cells[1].textContent = cat.color;
+            template.parentNode.appendChild(clone);
         }
     </script>
 					</code></pre>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
-                <p>This specification describes a method of establishing and maintaining functional boundaries between DOM trees
-                    and how these trees interact with each other within a document, thus enabling better functional encapsulation
-                    within the DOM.</p>
+                <p>This specification describes a method of combining multiple DOM trees into one hierarchy and how these trees interact with each other within a document, thus enabling better composition of the DOM.</p>
             </section>
 
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
-
+                <img style="height:600px;" data-src="img/tree-of-trees.svg">
             </section>
 
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
-
+                <ul>
+                    <li>Any element can host one associated node tree, called a shadow tree.</li>
+                    <li>css ist nur innerhalb shadow tree gültig.</li>
+                    <li>html id ist nur nnerhalb shadow tree gültig.</li>
+                    <li>javascript ist nur nnerhalb shadow tree gültig.</li>
+                </ul>
+                <p></p>
             </section>
 
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
+                <p>composed tree</p>
+                <img style="height:400px;" data-src="img/composed-tree.svg">
+            </section>
+
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
+                <p>Slots and distributions</p>
+                <ul>
+                    <li>Children aus den Document werden in slots des shadow trees übernommen.</li>
+                </ul>
+                 <pre><code class="hljs" contenteditable>
+   <x-foo>
+       <p>text</p>
+   </x-foo>
+                </code></pre>
+            </section>
+
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM - Slots</h2>
+                <img style="height:500px;" data-src="img/distributions.svg">
+            </section>
+
+
+            <section>
+                <h2>Web Components - Example</h2>
+                 <pre><code class="hljs" contenteditable><template id="sdtemplate">
+  <style>
+    p { color: orange; }
+  </style>
+  <p>I'm in Shadow DOM. My markup was stamped from a &lt;template&gt;.</p>
+</template>
+
+<script>
+var proto = Object.create(HTMLElement.prototype, {
+  createdCallback: {
+    value: function() {
+      var t = document.querySelector('#sdtemplate');
+      var clone = document.importNode(t.content, true);
+      this.createShadowRoot().appendChild(clone);
+    }
+  }
+});
+document.registerElement('x-foo-from-template', {prototype: proto});
+</script>
+            </code></pre>
+            </section>
+
+
+
+            <section>
+                <h2>Web Components - Example</h2>
+                <img width="900" data-src="img/xFooTemplate.png" alt="Status">
+            </section>
             <section>
                 <h2>Browser Unterstützung</h2>
                 <img width="900" data-src="img/wc_status.png" alt="Status">
@@ -244,8 +371,8 @@
             </section>
 
             <section>
-                <h2>Implementierungen und Frameworks</h2>
-                <p>Die folgenden Libraries und Frameworks setzen auf den Web Components Specs auf:</p>
+                <h2>Web Components Libraries</h2>
+                <p>Die folgenden Libraries und Frameworks verwenden die Web Components Specs:</p>
                 <ul>
                     <li>x-tag (ex-Mozilla, nun Microsoft)</li>
                     <li>bosonic (minimalistic)</li>
@@ -254,8 +381,8 @@
             </section>
             <section>
                 <h2>Interoperabilität</h2>
-                <p>Web Components können aus "beliebigen" Libraries miteinenader gemischt werden.</p>
-                <p>Sie können auch gut in SPA Frameworks (angular, react) integriert werden.</p>
+                <p>Web Components können aus "beliebigen" Libraries miteinander gemischt werden.</p>
+                <p>Sie können auch in SPA Frameworks (wie Angular, React) integriert werden.</p>
             </section>
 
             <section>
@@ -277,43 +404,28 @@
             <section>
                 <h2>Polymer</h2>
                 <ul>
-                    <li>Library zum Erstellen von Web Components</li>
-                    <li>implementiert WebComponents Specs</li>
-                    <li>versteckt umständlichen Web Components Code.</li>
+                    <li>vereinfacht das Erstellen von Web Components</li>
+                    <li>syntactic sugar für Web Components</li>
                     <li>kann auch vollständige SPA erstellen.</li>
                 </ul>
             </section>
-
-
             <section>
                 <h2>Beispiel</h2>
                 <ul>
-                    <li><a href="demo/googlemaps.html" target="blank">Gmaps mit JS</a></li>
+                    <li><a href="demo/gmapsjs.html" target="blank">Gmaps mit JS</a></li>
                     <li><a href="demo/gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
                     <li><a href="demo/gmaps2.html" target="blank">gmaps.html mit Polymer data binding</a></li>
                 </ul>
             </section>
-
             <section>
                 <h2>Polymer Features</h2>
                 <ul>
-                    <li></li>
-                    <li></li>
+                    <li>data binding</li>
+                    <li>custom styling</li>
                     <li></li>
                     <li></li>
                     <li></li>
                 </ul>
-            </section>
-
-            <section data-markdown>
-                <script type="text/template">
-                    ## Markdown support Write content using inline or external Markdown. Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-                    ```
-                    <section data-markdown>
-                        ## Markdown support Write content using inline or external Markdown. Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-                    </section>
-                    ```
-                </script>
             </section>
 
         </div>

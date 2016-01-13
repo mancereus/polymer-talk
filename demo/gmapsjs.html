@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Simple Polygon</title>
+    <title>Gmaps Polymer</title>
     <style>
       html, body {
         height: 100%;
@@ -16,7 +16,8 @@
     </style>
   </head>
   <body>
-    <div id="map"></div>
+      <h2>google maps mit javascript API</h2>
+    <div id="map" style="width: 700px;height: 500px;"></div>
     <script>
 
 // This example creates a simple polygon representing the Bermuda Triangle.
@@ -50,6 +51,6 @@ function initMap() {
 
     </script>
     <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&signed_in=true&callback=initMap"></script>
+        src="https://maps.googleapis.com/maps/api/js?signed_in=true&callback=initMap"></script>
   </body>
 </html>
