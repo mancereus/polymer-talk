@@ -26,12 +26,21 @@
     <div>div with no border!</div>
 
     <greeting-name>
-        </greeting-name>
+    </greeting-name>
 
 
-    <greeting-name greeting="Guten tag">
-        </greeting-name>
+    <greeting-name id="xx" greeting="Guten tag">
+    </greeting-name>
 
+    <script>
+        var dynamicEl = document.createElement("greeting-name");
+      dynamicEl.setAttribute("greeting", "Hello, Good Morning.");
+      console.log(dynamicEl.getAttribute("greeting"));
+      console.log(dynamicEl.greeting);
+
+      console.log(document.getElementById("xx").greeting);
+       document.body.appendChild(dynamicEl);
+    </script>
 </body>
 
 </html>
