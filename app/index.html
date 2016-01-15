@@ -72,21 +72,39 @@
             <section>
                 <h2>Anforderungen an ein Web Framework</h2>
                 <ul>
-                    <li>früher: Server hat vollständige Seiten gerendert.</li>
-                    <li>jetzt: Single Page Application.</li>
-                    <li>Immer mehr Features sind clientseitig zu lösen.</li>
-                    <li>server liefert nur noch Daten und Sicherheitsfeatures</li>
-                    <li>neue Features: offline, locale Storage, Mobile, service-worker, progressive WebApp</li>
+                    <li>Server rendert -> Single Page Application.</li>
+                    <li>Client holt Daten und rendert.</li>
+                    <li>zukünftige Features: offline, locale Storage, Mobile, Service-worker, progressive WebApp, push notification</li>
                 </ul>
             </section>
             <section>
-                <h2>Wie sollte das Framework aufgebaut sein?</h2>
+                <h2>Technische Anforderungen</h2>
                 <ul>
+                    <li>möglichst wenig Framework</li>
                     <li>möglichst nah an Browser engine.</li>
-                    <li>Html aus Html files. (nicht jsf,jsx,...) </li>
-                    <li>css aus css files. (oder sass, less,..)</li>
-                    <li>js möglichst schlank und einfach. (evtl. ES2015 und Transpiler)</li>
-                    <li>möglichst wenig Framework.</li>
+                    <li>Html inline oder aus Html files. (nicht String,jsx,...) </li>
+                    <li>css inline oder aus css files. (oder sass, less,..)</li>
+                    <li>js möglichst schlank und einfach. (ES6, ES2015, Typescript?)</li>
+                    <li>einfaches rendering dynamischer Inhalte</li>
+                    <li>verwendbare Komponenten, die sich auch anpassen lassen.</li>
+                    <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
+                    <li>sehr gute performance und footprint</li>
+                    <li>gutes Debugging und Error handling im Browser</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Kunden Anforderungen</h2>
+                <ul>
+                    <li>Table mit Sorting, Paging, Filter im Server oder Client</li>
+                    <li>Charts</li>
+                    <li>Valdierung der Eingaben</li>
+                    <li>Behindertengerecht</li>
+                    <li>Sicherheitsprüfungen</li>
+                    <li>export pdf, excel</li>
+                    <li>print</li>
+                    <li>Kundenstyling integrierbar</li>
+                    <li>Support für Kundenbrowser (IE9+ ??)</li>
+                    <li>Support für "beliebige" Browser (externe Zugriffe)</li>
                 </ul>
             </section>
             <section>

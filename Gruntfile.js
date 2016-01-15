@@ -1,7 +1,7 @@
 /* global module:false */
 module.exports = function(grunt) {
 	var port = grunt.option('port') || 8000;
-	var base = grunt.option('base') || '.';
+	var base = grunt.option('base') || 'app';
 
 	// Project configuration
 	grunt.initConfig({
@@ -117,22 +117,22 @@ module.exports = function(grunt) {
 				livereload: true
 			},
 			js: {
-				files: [ 'Gruntfile.js', 'js/reveal.js' ],
+				files: [ 'Gruntfile.js', 'app/js/reveal.js' ],
 				tasks: 'js'
 			},
 			theme: {
-				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
+				files: [ 'app/css/theme/source/*.scss', 'app/css/theme/template/*.scss' ],
 				tasks: 'css-themes'
 			},
 			css: {
-				files: [ 'css/reveal.scss' ],
+				files: [ 'app/css/reveal.scss' ],
 				tasks: 'css-core'
 			},
 			html: {
-				files: [ 'index.html']
+				files: [ 'app/index.html']
 			},
 			markdown: {
-				files: [ './*.md' ]
+				files: [ 'app/*.md' ]
 			}
 		}
 
