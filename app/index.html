@@ -71,94 +71,52 @@
                 </ul>
             </section>
             <section>
-                <h2>Web Framework</h2>
-                <ul>
-                    <li>Laden einer Html Seite im Browser (mit css, js)</li>
-                    <li>Html Komponenten und "eigene" Komponenten</li>
-                    <li>Reaktion auf User events in Komponenten</li>
-                    <li>Nachladen von Daten, templates vom Server</li>
-                    <li>Daten, Templates dynamisch in Seite einbauen</li>
-                </ul>
-            </section>
-            <section>
-                <h2>HTML, Document, DOM</h2>
-                <ul>
-                    <li>Browser erzeugt aus HTML Elementen document mt DOM Tree</li>
-                    <li>HTML Elements sind in Spec vorgegeben: a, input,...</li>
-                </ul>
-                <img data-src="img/html.gif">
-            </section>
-            <section>
-                <h2>Anforderungen an ein Web Framework</h2>
-                <ul>
-                    <li>früher: Server rendert fertige templates</li>
-                    <li>jetzt: Client holt Daten und templates und rendert diese selbständig</li>
-                    <li>Single Page Application: nur noch eine Seite -> eigenes routing mit #</li>
-                    <li>zukünftige Features: offline, locale Storage, Mobile, Service-worker, progressive WebApp, push notification</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Technische Anforderungen</h2>
-                <ul>
-                    <li>möglichst wenig Framework und nah an Browser engine.</li>
-                    <li>Html inline oder aus Html files. (nicht String,jsx,...) </li>
-                    <li>css inline oder aus css files. (oder sass, less,..)</li>
-                    <li>js möglichst schlank und einfach. (ES6, ES2015, Typescript?)</li>
-                    <li>tempalte engine zur Verwaltung dynamischer Inhalte</li>
-                    <li>verwendbare Komponenten, die sich auch anpassen lassen.</li>
-                    <li>one-way und two-way data binding ?</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Entwicklung Anforderungen</h2>
-                <ul>
-                    <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
-                    <li>sehr gute performance und footprint</li>
-                    <li>gutes Debugging und Error handling im Browser</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Kunden Anforderungen</h2>
-                <ul>
-                    <li>Komponente Table mit Sorting, Paging, Filter im Server oder Client</li>
-                    <li>Komponente Charts</li>
-                    <li>Komponente Eingabe mit Validierung</li>
-                    <li>Behindertengerecht</li>
-                    <li>Sicherheitsprüfungen</li>
-                    <li>export pdf, excel, print</li>
-                    <li>performance, memory consumption</li>
-                    <li>Kundenstyling css integrierbar</li>
-                    <li>Support für Kundenbrowser (IE9+ ??)</li>
-                    <li>Support für "beliebige" Browser (Safari, Android Default browser)</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Features of Angular</h2>
-                <ul>
-                    <li>two-way data binding</li>
-                    <li>templates</li>
-                    <li>SPA, routing</li>
-                    <li>MVC Model über $scope</li>
-                    <li>Dependency injection <- imports</li>
-                    <li>Directives <- Components</li>
-                </ul>
-            </section>
+                <h2>Warum?</h2>
 
+                <p>Browserumgebung entwickelt sich weiter. Gute Features aus den erfolgreichen Frameworks werden übernommen.</p>
+                <ul>
+                    <li>HTML 5</li>
+                    <li>ES 2015</li>
+                    <li>CSS 3</li>
+                </ul>
+            </section>
             <section>
-                <h1>Theorie</h1>
+                <h1>Teil 1: Theorie</h1>
                 <a href="http://webcomponents.org/">http://webcomponents.org</a>
                 <br>
                 <img data-src="img/logo.svg">
                 <p>The goal of web components is to reduce complexity by isolating a related group of HTML, CSS, and JavaScript to perform a common function within the context of a single page.</p>
             </section>
             <section>
-                <h2>Worum gehts diesmal?</h2>
+                <h2>Web Components</h2>
                 <ul>
                     <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
-                    <li>Spezifikation: http://webcomponents.org/</li>
-                    <li>Implementierung: Im Browser bzw. Polyfill</li>
-                    <li>Vereinfachung mit Polymer: https://www.polymer-project.org/1.0/ </li>
+                    <li>Kapselung der nötigen Html, JS und CSS Daten</li>
+                    <li>Bündelung von 4 Spezifikationen: http://webcomponents.org/</li>
                 </ul>
+            </section>
+            <section>
+                <h2>HTML Document</h2>
+                <ul>
+                    <li>Browser erzeugt aus HTML Elementen document mt DOM</li>
+                    <li>HTML Elements sind in Spec vorgegeben: a, input,...</li>
+                    <li>unbekannte Elemente werden ignoriert: &lt;abc/></li>
+                </ul>
+                <img data-src="img/html.gif">
+            </section>
+            <section>
+                <h2>HTML Element</h2>
+                <p>&lt;tagname attr="val">content&lt;/tagname></p>
+                <p>Html Element enthält:</p>
+                <ul>
+                    <li>tagname</li>
+                    <li>Properties</li>
+                    <li>Content</li>
+                    <li>Events</li>
+                    <li>Methods</li>
+                </ul>
+                <br>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">Html Element Specification</a>
             </section>
             <section>
                 <h2>Web Components</h2>
@@ -195,7 +153,7 @@
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
-                <p>Extends HTML Elements</p>
+                <p>erweitert HTMLElement</p>
                 <pre><code class="hljs" contenteditable>
             //create element x-foo
             document.registerElement('x-foo', {
@@ -212,15 +170,15 @@
             //use element x-foo extends HTML Element p
             <p is="x-foo">Paragraph</p>
             </code></pre>
-                <p>Attribute aus HTML Element sind gültig. (disabled,..)</p>
+                <p>Eigenschaften aus HTMLElement sind enthalten.</p>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
-                <p>create new Elements</p>
+                <p>erzeugt neues Element</p>
                 <pre><code class="hljs" contenteditable>
             //create element x-foo
             document.registerElement('x-foo', {
-                prototype: Object.create(HTMLParagraphElement.prototype, {
+                prototype: Object.create(null, {
                 })
             });
 
@@ -265,36 +223,40 @@
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-htmlimports.png"> HTML Imports</h2>
-                <p>HTML Imports are a way to include and reuse HTML documents in other HTML documents.</p>
-                <pre><code class="hljs" contenteditable>
-            // import element from external html file
+                <p>lädt externes HTML mit css, script und anderen links</p>
+                <pre><code class="hljs" contenteditable>// import element from external html file
             <link rel="import" href="x-foo.html">
 
             //use element x-foo
-            <x-foo></x-foo>
-					</code></pre>
-                <p>lädt externes HTML mit css, script und anderen links</p>
+            <x-foo></x-foo></code></pre>
+                <pre><code class="hljs" contenteditable>//x-foo.html:
+            <link rel="import" href="x-bar.html">
+            <script src="code.js"></script>
+            <style>
+                div {font-size: 200%}
+            </style>
+            ...</code></pre>
                 <p>Mozilla will Html Import nicht umsetzen! </p>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-templates.png"> Templates</h2>
-                <p>This specification describes a method for declaring inert DOM subtrees in HTML and manipulating them to instantiate
+                <p>Declare DOM subtrees in HTML and manipulating them to instantiate
                     document fragments with identical contents.</p>
                     <ul>
-                        <li>&lt;template> ist ein html element.</li>
+                        <li>&lt;template> ist ein neues HtmlElement.</li>
                         <li>&lt;template> erzeugt ein Dokument Fragment.</li>
+                        <li>Der Inhalt von template wird nicht direkt gerendert.</li>
+                        <li>nur über API integriert.</li>
                     </ul>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-templates.png"> Templates</h2>
-                <pre><code class="hljs" contenteditable >     <table>
-        <tbody>
+                <pre><code class="hljs" contenteditable >     <table><tbody>
             <tr><th>Name</th><th>Colour</th></tr>
-            <template id="row">
-                <tr> <td/><td/> </tr>
-            </template>
-        </tbody>
-    </table>
+        <template id="row">
+            <tr><td/><td/></tr>
+        </template>
+    </tbody></table>
     <script>
         var template = document.querySelector('#row');
         for (var i = 0; i < data.length; i += 1) {
@@ -315,19 +277,19 @@
 
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
-                <img style="height:600px;" data-src="img/tree-of-trees.svg">
+                <ul>
+                    <li>ermöglicht Zusammenführung von DOM Trees</li>
+                    <li>Jedes Element kann einen Node Tree bekommen  "shadow tree".</li>
+                    <li>Kapselung: css, javascript, id ist nur innerhalb des shadow tree gültig.</li>
+                </ul>
+                <p></p>
             </section>
 
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
-                <ul>
-                    <li>Any element can host one associated node tree, called a shadow tree.</li>
-                    <li>css ist nur innerhalb shadow tree gültig.</li>
-                    <li>html id ist nur nnerhalb shadow tree gültig.</li>
-                    <li>javascript ist nur nnerhalb shadow tree gültig.</li>
-                </ul>
-                <p></p>
+                <img style="height:500px;" data-src="img/tree-of-trees.svg">
             </section>
+
 
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
@@ -355,7 +317,7 @@
 
 
             <section>
-                <h2>Web Components - Example</h2>
+                <h2>Shadow DOM - Example</h2>
                  <pre><code class="hljs" contenteditable><template id="sdtemplate">
   <style>
     p { color: orange; }
@@ -381,7 +343,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
 
 
             <section>
-                <h2>Web Components - Example</h2>
+                <h2>Shadow DOM - Example</h2>
                 <img width="900" data-src="img/xFooTemplate.png" alt="Status">
             </section>
             <section>
@@ -398,50 +360,141 @@ document.registerElement('x-foo-from-template', {prototype: proto});
             <section>
                 <h2>Polyfill</h2>
                 <p>webcomponents-lite.js
-                    <br>für Custom-elements aund html-import</p>
+                    <br>für Custom-elements und html-import</p>
                 <code><pre>&lt;script src="webcomponentsjs/webcomponents-lite.js"/></pre></code>
                 <p>webcomponents.js für alle 4 Specs
                     <br>plus ES6 Weak-Maps und Mutation Observer</p>
                 <code><pre>&lt;script src="webcomponentsjs/webcomponents.js"/></pre></code>
+                <p>Kapselung von CSS, JS in Shadow DOM kann nicht in polyfill realisiert werden.</p>
             </section>
 
             <section>
-                <h2>Web Components Libraries</h2>
+                <h2>Web Components Frameworks</h2>
                 <p>Die folgenden Libraries und Frameworks verwenden die Web Components Specs:</p>
                 <ul>
                     <li>x-tag (ex-Mozilla, nun Microsoft)</li>
-                    <li>bosonic (minimalistic)</li>
+                    <li>bosonic</li>
                     <li>Polymer (Google)</li>
                 </ul>
             </section>
             <section>
                 <h2>Interoperabilität</h2>
-                <p>Web Components können aus "beliebigen" Libraries miteinander gemischt werden.</p>
+                <p>Web Components können aus "beliebigen" Frameworks miteinander gemischt werden.</p>
                 <p>Sie können auch in SPA Frameworks (wie Angular, React) integriert werden.</p>
             </section>
 
             <section>
-                <h2>Showcases</h2>
-                <p>gesammelte Web Components findet man unter:</p>
+                <h1>Teil 2: Web Framework Anforderungen</h1>
+            </section>
+            <section>
+                <h2>Workflow</h2>
                 <ul>
-                    <li>https://customelements.io/</li>
-                    <li>https://elements.polymer-project.org/</li>
+                    <li>Laden einer Html Seite im Browser (mit css, js)</li>
+                    <li>DOM erzeugen aus HtmlElements und Custom Elements</li>
+                    <li>Aktionen bei Events</li>
+                    <li>Nachladen von Daten oder Templates</li>
+                    <li>Daten, Templates dynamisch in Seite einbauen</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Web Framework Konzepte</h2>
+                <ul>
+                    <li>früher: Server rendert fertige templates</li>
+                    <li>jetzt: Client holt Daten und templates und rendert diese selbständig</li>
+                    <li>Seite wird aus Komponenten/Widgets zusammengebaut.</li>
+                    <li>Single Page Application: nur noch eine Seite</li>
+
+                </ul>
+            </section>
+            <section>
+                <h2>Technische Anforderungen</h2>
+                <ul>
+                    <li>Framework nutzt Features der Browser Engine.</li>
+                    <li>Trennung in Html, CSS, JS</li>
+                    <li>Support für Layout</li>
+                    <li>frei verfügbare Komponentenbibliothek</li>
+                    <li>Komponentenerstellung, mit anpassbarem Styling.</li>
+                    <li>Template Engine</li>
+                    <li>one-way und two-way data binding</li>
+                   <li>Support für zukünftige Features: Offline, locale Storage, WebWorker, Push Notification</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Fachliche Anforderungen</h2>
+                <ul>
+                    <li>Komponente: Charts, Eingabe mit Validierung</li>
+                    <li>Komponente: Table mit Sorting, Paging, Filter</li>
+                    <li>Internationalisierung</li>
+                    <li>Behindertengerecht, ARIA, HighContrast</li>
+                    <li>Sicherheitschecks</li>
+                    <li>export pdf, excel, print</li>
+                    <li>Kundenstyling css integrierbar</li>
+                    <li>Support für Kundenbrowser (IE9+ ??)</li>
+                    <li>Support für "beliebige" Browser (Safari, Android Browser)</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Entwicklung Anforderungen</h2>
+                <ul>
+                    <li>Framework Dokumentation, Beispiele</li>
+                    <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
+                    <li>sehr gute Performance und Memory Consumption</li>
+                    <li>Debugging und Error handling im Browser</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Web Components</h2>
+                <p>Pro:</p>
+                <ul style="color: green">
+                    <li>Template Engine</li>
+                    <li>Komponenten über custom elements</li>
+                    <li>Default DOM Framework und API</li>
+                    <li>Kann in Browser Engine optimiert werden</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Web Components</h2>
+                <p>Contra:</p>
+                <ul style="color: red">
+                    <li>keine Lösung für data binding oder layout support</li>
+                    <li>keine Lösung für I18n, ARIA, Sicherheit</li>
+                    <li>kein Framework, sondern nur Erweiterung der HTML Spec</li>
+                    <li>umständlicher JS Code wird durch standardisierten umständlichen JS Code ersetzt.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Angular 1/2</h2>
+                <p>Pro:</p>
+                <ul style="color: green">
+                    <li>SPA, modularer Aufbau</li>
+                    <li>Template Engine</li>
+                    <li>two-way data binding</li>
+                    <li>MVC mit $scope</li>
+                    <li>Support für I18N, ARIA, Sicherheit ??</li>
+                    <li>Komponenten über Directives</li>
+                    <li>grosse Komponenten Bibliothek</li>
+                    <li>Web Components lassen sich integrieren</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Angular 1/2</h2>
+                <p>Contra:</p>
+                <ul style="color: red">
+                    <li>basiert nicht auf Standard Web Components</li>
+                    <li>hat "steile" Lernkurve und komplexe API</li>
+                    <li>hat eigene Template Engine, daher keine Kapselung durch shadow DOM</li>
+                    <li>Fehlerursache manchmal kryptisch</li>
+                    <li>Versionsumbruch 1.0 / 2.0</li>
                 </ul>
             </section>
 
+
             <section>
-                <h1>Praxis</h1>
+                <h1>Teil 3: Polymer</h1>
                 <a href="http://polymer-project.org">http://polymer-project.org</a>
                 <br>
                 <img style="height: 100px;" data-src="img/polymer.svg">
 
-            </section>
-            <section>
-                <h2>Polymer</h2>
-                <ul>
-                    <li>vereinfacht das Erstellen von Web Components</li>
-                    <li>kann auch vollständige SPA erstellen.</li>
-                </ul>
             </section>
             <section>
                 <h2>Polymer Erfahrungen</h2>
@@ -452,27 +505,111 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 </ul>
             </section>
             <section>
-                <h2>Beispiel</h2>
+                <h2>Polymer</h2>
+                <ul>
+                    <li>Erstellung neuer Komponenten über Web Components</li>
+                    <li>mit vereinfachter API</li>
+                    <li>Import der Elemente mit HTMl Imports</li>
+                    <li>one-way und two-way data binding</li>
+                    <li>Kapselung CSS, JS durch Shadow DOM</li>
+                </ul>
+
+            </section>
+            <section>
+                <h2>Beispiel Polymer Element</h2>
                 <ul>
                     <li><a href="demo/gmapsjs.html" target="blank">Gmaps mit JS</a></li>
                     <li><a href="demo/gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
                 </ul>
             </section>
             <section>
-                <h2>Polymer Features</h2>
+                <h2>DOM Api</h2>
                 <ul>
-                    <li>data binding</li>
-                    <li>custom styling</li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>Polymer.dom API</li>
+                    <li>Zugriff auf Shadow DOM</li>
+                    <li>Steuerung der custom elements</li>
                 </ul>
             </section>
             <section>
-                <h2>Simple Element mit data binding</h2>
+                <h2>Data Binding</h2>
+                <ul>
+                    <li>properties</li>
+                    <li>observer</li>
+                    <li>notifypath</li>
+                    <li>support für Arrays und Objects</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Beispiele Data Binding</h2>
                 <ul>
                     <li><a href="demo/01greeting.html" target="blank">Simple Element</a></li>
                     <li><a href="demo/gmaps2.html" target="blank">gmaps.html mit Polymer data binding</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>event handling</h2>
+                <ul>
+                    <li>listener</li>
+                    <li>custom events</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Data Elements</h2>
+                <p>bevorzugtes Pattern: </p>
+                <p>Verwendung von Data Elements ohne GUI</p>
+                <p>Trennung zwischen Bereistellung der Daten und Anzeige</p>
+            </section>
+            <section>
+                <h2>Beispiel Data Elements</h2>
+                <ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Layout und Custom Styling</h2>
+            </section>
+            <section>
+                <h2>Beispiel Layout und Styling</h2>
+                <ul>
+                </ul>
+            </section>
+            <section>
+                <h2>Mixins durch Behavior</h2>
+                <p>Integration ARIA</p>
+                <p>Integration I18N</p>
+            </section>
+            <section>
+                <h2>Komponenten Bibliothek:</h2>
+                <p>gesammelte Web Components findet man unter:</p>
+                <ul>
+                    <li>https://customelements.io/</li>
+                    <li>https://elements.polymer-project.org/</li>
+                </ul>
+                <p>einfache Integration über: "bower install"</p>
+            </section>
+            <section>
+                <h2>Beispiel komplette SPA</h2>
+                <p>SCOOP Admin</p>
+            </section>
+            <section>
+                <h2>Polymer</h2>
+                <p>Pro:</p>
+                <ul style="color: green">
+                    <li>Template Engine auf Basis von Web Components</li>
+                    <li>Erstellung von custom elements sehr einfach</li>
+                    <li>one-way und two-way data-binding </li>
+                    <li>grosse Komponenten Bibliothek </li>
+                    <li>Support Layout, css custom styling</li>
+                    <li>Data Elements reduzieren JS Code</li>
+                    <li>Support für Offline, WebWorker, push Notifications</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Polymer</h2>
+                <p>Contra:</p>
+                <ul style="color: red">
+                    <li>Versionsumbruch: 0.5 auf 1.0 (aktuell: 1.2.3)</li>
+                    <li>Dokumentation teilweise knapp.</li>
+                    <li>Doku für Web Components hilfreich.</li>
                 </ul>
             </section>
 
