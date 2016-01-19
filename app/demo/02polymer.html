@@ -1,0 +1,18 @@
+<template is="dom-bind">
+    <iron-ajax auto url="http://www.w3schools.com/angular/customers.php"
+    handle-as="json" last-response="{{data}}"></iron-ajax>
+    <div>
+        <ul>
+            <template is="dom-repeat" items="{{data}}">
+                <li>{{item.Name}}, {{item.Country}}</li>
+            </template>
+        </ul>
+
+    </div>
+</template>
+
+<script>
+    //no js, YEAH.
+    //scope defined by element position
+
+</script>

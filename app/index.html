@@ -67,26 +67,51 @@
                     <li>Angular 1/2</li>
                     <li>React</li>
                     <li>Web Components ?</li>
+                    <li>Polymer ??</li>
                 </ul>
+            </section>
+            <section>
+                <h2>Web Framework</h2>
+                <ul>
+                    <li>Laden einer Html Seite im Browser (mit css, js)</li>
+                    <li>Html Komponenten und "eigene" Komponenten</li>
+                    <li>Reaktion auf User events in Komponenten</li>
+                    <li>Nachladen von Daten, templates vom Server</li>
+                    <li>Daten, Templates dynamisch in Seite einbauen</li>
+                </ul>
+            </section>
+            <section>
+                <h2>HTML, Document, DOM</h2>
+                <ul>
+                    <li>Browser erzeugt aus HTML Elementen document mt DOM Tree</li>
+                    <li>HTML Elements sind in Spec vorgegeben: a, input,...</li>
+                </ul>
+                <img data-src="img/html.gif">
             </section>
             <section>
                 <h2>Anforderungen an ein Web Framework</h2>
                 <ul>
-                    <li>Server rendert -> Single Page Application.</li>
-                    <li>Client holt Daten und rendert.</li>
+                    <li>früher: Server rendert fertige templates</li>
+                    <li>jetzt: Client holt Daten und templates und rendert diese selbständig</li>
+                    <li>Single Page Application: nur noch eine Seite -> eigenes routing mit #</li>
                     <li>zukünftige Features: offline, locale Storage, Mobile, Service-worker, progressive WebApp, push notification</li>
                 </ul>
             </section>
             <section>
                 <h2>Technische Anforderungen</h2>
                 <ul>
-                    <li>möglichst wenig Framework</li>
-                    <li>möglichst nah an Browser engine.</li>
+                    <li>möglichst wenig Framework und nah an Browser engine.</li>
                     <li>Html inline oder aus Html files. (nicht String,jsx,...) </li>
                     <li>css inline oder aus css files. (oder sass, less,..)</li>
                     <li>js möglichst schlank und einfach. (ES6, ES2015, Typescript?)</li>
-                    <li>einfaches rendering dynamischer Inhalte</li>
+                    <li>tempalte engine zur Verwaltung dynamischer Inhalte</li>
                     <li>verwendbare Komponenten, die sich auch anpassen lassen.</li>
+                    <li>one-way und two-way data binding ?</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Entwicklung Anforderungen</h2>
+                <ul>
                     <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
                     <li>sehr gute performance und footprint</li>
                     <li>gutes Debugging und Error handling im Browser</li>
@@ -95,37 +120,28 @@
             <section>
                 <h2>Kunden Anforderungen</h2>
                 <ul>
-                    <li>Table mit Sorting, Paging, Filter im Server oder Client</li>
-                    <li>Charts</li>
-                    <li>Valdierung der Eingaben</li>
+                    <li>Komponente Table mit Sorting, Paging, Filter im Server oder Client</li>
+                    <li>Komponente Charts</li>
+                    <li>Komponente Eingabe mit Validierung</li>
                     <li>Behindertengerecht</li>
                     <li>Sicherheitsprüfungen</li>
-                    <li>export pdf, excel</li>
-                    <li>print</li>
-                    <li>Kundenstyling integrierbar</li>
+                    <li>export pdf, excel, print</li>
+                    <li>performance, memory consumption</li>
+                    <li>Kundenstyling css integrierbar</li>
                     <li>Support für Kundenbrowser (IE9+ ??)</li>
-                    <li>Support für "beliebige" Browser (externe Zugriffe)</li>
+                    <li>Support für "beliebige" Browser (Safari, Android Default browser)</li>
                 </ul>
             </section>
             <section>
-                <h2>Worum gehts diesmal?</h2>
+                <h2>Features of Angular</h2>
                 <ul>
-                    <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
-                    <li>Spezifikation: http://webcomponents.org/</li>
-                    <li>Implementierung: Im Browser bzw. Polyfill</li>
-                    <li>Vereinfachung mit Polymer: https://www.polymer-project.org/1.0/ </li>
+                    <li>two-way data binding</li>
+                    <li>templates</li>
+                    <li>SPA, routing</li>
+                    <li>MVC Model über $scope</li>
+                    <li>Dependency injection <- imports</li>
+                    <li>Directives <- Components</li>
                 </ul>
-            </section>
-            <section>
-                <h2>Erfahrungen</h2>
-                <ul>
-                    <li>Polymer Konferenz in Amsterdam</li>
-                    <li>Polymer in privaten Projekten</li>
-                    <img data-src="img/conference.png">
-                </ul>
-                <aside class="notes">
-                    Eignet sich zur Komponenten Spiele entwicklung, aber acuh für Business Anwendungen?
-                </aside>
             </section>
 
             <section>
@@ -136,12 +152,13 @@
                 <p>The goal of web components is to reduce complexity by isolating a related group of HTML, CSS, and JavaScript to perform a common function within the context of a single page.</p>
             </section>
             <section>
-                <h2>HTML, Document, DOM</h2>
+                <h2>Worum gehts diesmal?</h2>
                 <ul>
-                    <li>Browser erzeugt aus HTML Elementen document mt DOM Tree</li>
-                    <li>HTML Elements sind in Spec vorgegeben: a, input,...</li>
+                    <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
+                    <li>Spezifikation: http://webcomponents.org/</li>
+                    <li>Implementierung: Im Browser bzw. Polyfill</li>
+                    <li>Vereinfachung mit Polymer: https://www.polymer-project.org/1.0/ </li>
                 </ul>
-                <img data-src="img/html.gif">
             </section>
             <section>
                 <h2>Web Components</h2>
@@ -424,6 +441,14 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <ul>
                     <li>vereinfacht das Erstellen von Web Components</li>
                     <li>kann auch vollständige SPA erstellen.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Polymer Erfahrungen</h2>
+                <ul>
+                    <li>Polymer Konferenz in Amsterdam</li>
+                    <li>Polymer in privaten Projekten</li>
+                    <img data-src="img/conference.png">
                 </ul>
             </section>
             <section>
