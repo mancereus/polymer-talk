@@ -4,10 +4,10 @@
 <head>
     <title>new Element</title>
     <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script>
+    <!--<script>
         window.Polymer = window.Polymer || {};
         window.Polymer.dom = 'shadow';
-    </script>
+    </script>-->
     <link rel="import" href="../../bower_components/polymer/polymer.html">
     <link rel="import" href="../../bower_components/font-roboto/roboto.html">
 
@@ -24,21 +24,22 @@
 </head>
 
 <body>
-    <h2>Simple element with property</h2>
+    <h2>Shadow Dom and Shady DOM</h2>
 
-    <div>div with no border!</div>
+    <div>div not blue and no border!</div>
+    <br><br>
 
-    <div class="greeting-name">css leaks! no shadow dom!!</div>
+    <div class="greeting-name">css leaks? <br>Shady dom!!</div>
+    <br><br>
 
-    <greeting-name>
-    </greeting-name>
+    <greeting-name></greeting-name>
 
 
     <dom-module id="greeting-name">
         <style>
             div {
                 margin: 12px;
-                width: 100px;
+                width: 120px;
                 height: 30px;
                 padding: 20px;
                 border: 1px solid black;
@@ -48,7 +49,7 @@
         </style>
 
         <template>
-            <div>{{greeting}}</div>
+            <div id="greet">{{greeting}}</div>
         </template>
         <script>
             // element registration
@@ -61,7 +62,7 @@
                 // declare properties for the element's public API
                 greeting: {
                     type: String,
-                    value: "Hello"
+                    value: "Greeting Name"
                 }
             }
         }

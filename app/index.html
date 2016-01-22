@@ -54,14 +54,20 @@
             </section>
 
             <section>
-                <h2>Schon wieder ein JS Web Framework?</h2>
+                <h2>Schon wieder ein Web Framework?</h2>
 
                 <p>Wir hatten bereits:</p>
                 <ul>
+                    <li>...</li>
+                    <li>JSF</li>
                     <li>jQuery</li>
+                    <li>Apache Wicket</li>
                     <li>GWT</li>
                     <li>Dart</li>
                 </ul>
+            </section>
+            <section>
+                <h2>Schon wieder ein Web Framework?</h2>
                 <p>aktuell beliebt:</p>
                 <ul>
                     <li>Angular 1/2</li>
@@ -73,14 +79,14 @@
             <section>
                 <h2>Warum?</h2>
                 <ul>
-                    <li>Browserumgebung entwickelt sich weiter. </li>
-                    <li>Gute Features aus den erfolgreichen Frameworks werden übernommen.</li>
+                    <li>Browserumgebung entwickelt sich weiter</li>
+                    <li>Gute Features werden in Browser übernommen</li>
+                    <li>Client kann mehr Funktionen übernehmen</li>
                 </ul>
-                <ul>
-                    <li>HTML 5</li>
-                    <li>ES 2015</li>
-                    <li>CSS 3</li>
-                </ul>
+            </section>
+            <section>
+                <h2>Neues Browser Feature</h2>
+                <p>Web Components...</p>
             </section>
             <section>
                 <h1>Teil 1: Theorie</h1>
@@ -88,14 +94,6 @@
                 <br>
                 <img data-src="img/logo.svg">
                 <p>The goal of web components is to reduce complexity by isolating a related group of HTML, CSS, and JavaScript to perform a common function within the context of a single page.</p>
-            </section>
-            <section>
-                <h2>Web Components</h2>
-                <ul>
-                    <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
-                    <li>Kapselung der nötigen Html, JS und CSS Daten</li>
-                    <li>Bündelung von 4 neuen W3C Spezifikationen: http://webcomponents.org/</li>
-                </ul>
             </section>
             <section>
                 <h2>HTML Document</h2>
@@ -116,13 +114,21 @@
                     <li>Content</li>
                     <li>Events</li>
                     <li>Methods</li>
+                    <li>Rendering</li>
                 </ul>
                 <br>
                 <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement" target="_blank">Html Element Specification</a>
             </section>
             <section>
                 <h2>Web Components</h2>
-                <p>Web Components ermöglichen die Erzeugung neuer Elemente.</p>
+                <ul>
+                    <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
+                    <li>Kapselung des dazu nötigen Html, JS und CSS Codes</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Web Components</h2>
+                    <p>Bündelung von 4 neuen W3C Spezifikationen: http://webcomponents.org/</p>
                 <table>
                     <tr>
                         <td><img style="width:50px;" data-src="img/icon-customelements.png"></td>
@@ -144,18 +150,40 @@
             </section>
 
             <section>
+                <h2>Web Components</h2>
+                <table>
+                    <tr>
+                        <td><img style="width:50px;" data-src="img/icon-customelements.png"></td>
+                        <td style="vertical-align:middle">Custom Elements</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-htmlimports.png"></td>
+                        <td style="vertical-align:middle">HTML Imports</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-templates.png"></td>
+                        <td style="vertical-align:middle">Templates</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-shadowdom.png"></td>
+                        <td style="vertical-align:middle">Shadow Dom</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
                 <p>This specification describes the method for enabling the author to define and use new types of DOM elements
                     in a document.</p>
                     <ul>
                         <li>neue Elemente müssen ein "-" enthalten!</li>
-                        <li>document erhält eine registry, in der neue Elemente registriert werden können.</li>
+                        <li>document erhält eine Registry, in der neue Elemente registriert werden können.</li>
                         <li>Element Registrierung kann auch nach der Verwendung erfolgen!</li>
                     </ul>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
-                <p>erweitert HTMLElement</p>
+                <p>kann HTMLElement erweitern</p>
                 <pre><code class="hljs" contenteditable>
             //create element x-foo
             document.registerElement('x-foo', {
@@ -176,7 +204,7 @@
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
-                <p>erzeugt neues Element</p>
+                <p>kann neues Element erzeugen</p>
                 <pre><code class="hljs" contenteditable>
             //create element x-foo
             document.registerElement('x-foo', {
@@ -196,6 +224,7 @@
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
+                <p>Callbacks beim Erzeugen des custom Elements</p>
                 <table style="font-size: 70%">
                     <thead>
                         <tr>
@@ -221,6 +250,27 @@
                             <td>an attribute was added, removed, or updated</td>
                         </tr>
                     </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>Web Components</h2>
+                <table>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-customelements.png"></td>
+                        <td style="vertical-align:middle">Custom Elements</td>
+                    </tr>
+                    <tr>
+                        <td><img style="width:50px;" data-src="img/icon-htmlimports.png"></td>
+                        <td style="vertical-align:middle">HTML Imports</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-templates.png"></td>
+                        <td style="vertical-align:middle">Templates</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-shadowdom.png"></td>
+                        <td style="vertical-align:middle">Shadow Dom</td>
+                    </tr>
                 </table>
             </section>
             <section>
@@ -273,6 +323,27 @@
 					</code></pre>
             </section>
             <section>
+                <h2>Web Components</h2>
+                <table>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-customelements.png"></td>
+                        <td style="vertical-align:middle">Custom Elements</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-htmlimports.png"></td>
+                        <td style="vertical-align:middle">HTML Imports</td>
+                    </tr>
+                    <tr style="opacity: 0.4">
+                        <td><img style="width:50px;" data-src="img/icon-templates.png"></td>
+                        <td style="vertical-align:middle">Templates</td>
+                    </tr>
+                    <tr>
+                        <td><img style="width:50px;" data-src="img/icon-shadowdom.png"></td>
+                        <td style="vertical-align:middle">Shadow Dom</td>
+                    </tr>
+                </table>
+            </section>
+            <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-shadowdom.png"> Shadow DOM</h2>
                 <p>This specification describes a method of combining multiple DOM trees into one hierarchy and how these trees interact with each other within a document, thus enabling better composition of the DOM.</p>
             </section>
@@ -282,7 +353,8 @@
                 <ul>
                     <li>ermöglicht Zusammenführung von DOM Trees</li>
                     <li>Jedes Element kann einen Node Tree bekommen  "shadow tree".</li>
-                    <li>Kapselung: css, javascript, id ist nur innerhalb des shadow tree gültig.</li>
+                    <li>Kapselung: css, javascript, id ist nur innerhalb des shadow tree gültig</li>
+                    <li>Kapselung: document kann nicht auf shadow tree Inhalte zugreifen</li>
                 </ul>
                 <p></p>
             </section>
@@ -320,33 +392,29 @@
 
             <section>
                 <h2>Shadow DOM - Example</h2>
-                 <pre><code class="hljs" contenteditable><template id="sdtemplate">
-  <style>
-    p { color: orange; }
-  </style>
-  <p>I'm in Shadow DOM. My markup was stamped from a &lt;template&gt;.</p>
-</template>
-
-<script>
-var proto = Object.create(HTMLElement.prototype, {
-  createdCallback: {
-    value: function() {
-      var t = document.querySelector('#sdtemplate');
-      var clone = document.importNode(t.content, true);
-      this.createShadowRoot().appendChild(clone);
-    }
-  }
-});
-document.registerElement('x-foo-from-template', {prototype: proto});
-</script>
-            </code></pre>
+                <a href="demo/shadowcss.html" target="_blank">Shadow DOM</a>
             </section>
-
-
-
             <section>
-                <h2>Shadow DOM - Example</h2>
-                <img width="900" data-src="img/xFooTemplate.png" alt="Status">
+                <h2>Web Components</h2>
+                <table style="width:300px; font-size: 50%">
+                    <tr>
+                        <td><img style="width:30px;" data-src="img/icon-customelements.png"></td>
+                        <td style="vertical-align:middle">Custom Elements</td>
+                    </tr>
+                    <tr>
+                        <td><img style="width:30px;" data-src="img/icon-htmlimports.png"></td>
+                        <td style="vertical-align:middle">HTML Imports</td>
+                    </tr>
+                    <tr>
+                        <td><img style="width:30px;" data-src="img/icon-templates.png"></td>
+                        <td style="vertical-align:middle">Templates</td>
+                    </tr>
+                    <tr>
+                        <td><img style="width:30px;" data-src="img/icon-shadowdom.png"></td>
+                        <td style="vertical-align:middle">Shadow Dom</td>
+                    </tr>
+                </table>
+                <p>Wo wird das unterstützt?</p>
             </section>
             <section>
                 <h2>Browser Unterstützung</h2>
@@ -367,7 +435,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <p>webcomponents.js für alle 4 Specs
                     <br>plus ES6 Weak-Maps und Mutation Observer</p>
                 <code><pre>&lt;script src="webcomponentsjs/webcomponents.js"/></pre></code>
-                <p>Kapselung von CSS, JS in Shadow DOM kann nicht in polyfill realisiert werden.</p>
+                <p>echte Kapselung von CSS, JS in Shadow DOM kann nicht in polyfill realisiert werden.</p>
             </section>
 
             <section>
@@ -401,10 +469,11 @@ document.registerElement('x-foo-from-template', {prototype: proto});
             <section>
                 <h2>Web Framework Konzepte</h2>
                 <ul>
-                    <li>früher: Server rendert fertiges HTML-Teile</li>
+                    <li>früher: Server rendert fertige HTML-Teile</li>
                     <li>jetzt: Client holt Daten und Templates und rendert diese selbständig</li>
                     <li>Seite wird aus Templates/Komponenten/Widgets zusammengebaut.</li>
                     <li>Single Page Application: nur noch eine Seite</li>
+                    <li>Data Binding: Mapping zwischen Data Model und DOM</li>
 
                 </ul>
             </section>
@@ -413,11 +482,12 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <ul>
                     <li>Framework nutzt Features der Browser Engine.</li>
                     <li>Trennung in Html, CSS, JS</li>
-                    <li>Support für Layout</li>
-                    <li>frei verfügbare umfangreiche Komponentenbibliothek</li>
-                    <li>Komponenten mit anpassbarem Styling.</li>
                     <li>Template Engine</li>
                     <li>one-way und two-way data binding</li>
+                    <li>frei verfügbare umfangreiche Komponentenbibliothek</li>
+                    <li>Support für Layout</li>
+                    <li>Komponenten mit anpassbarem Styling.</li>
+                    <li>Navigation in SPA mit History</li>
                    <li>Support für zukünftige Features: Offline, locale Storage, WebWorker, Push Notification</li>
                 </ul>
             </section>
@@ -442,8 +512,11 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                     <li>Framework mit Dokumentation, Beispiele</li>
                     <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
                     <li>sehr gute Performance und Memory Consumption</li>
+                    <li>IDE Support</li>
+                    <li>ES6 oder TypeScript Support</li>
                     <li>Debugging und Error Handling im Browser</li>
                     <li>Mapping zwischen Server Data and Client Data</li>
+                    <li>Wartbarkeit des Codes</li>
                 </ul>
             </section>
             <section>
@@ -493,10 +566,10 @@ document.registerElement('x-foo-from-template', {prototype: proto});
 
 
             <section>
-                <h1>Teil 3: Polymer</h1>
-                <a href="http://polymer-project.org">http://polymer-project.org</a>
-                <br>
+                <h1>Teil 3: Praxis</h1>
                 <img style="height: 100px;" data-src="img/polymer.svg">
+                <br>
+                <a href="http://polymer-project.org">http://polymer-project.org</a>
 
             </section>
             <section>
@@ -511,19 +584,12 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <h2>Polymer</h2>
                 <ul>
                     <li>Erstellung neuer Komponenten über Web Components</li>
-                    <li>mit vereinfachter API</li>
-                    <li>Import der Elemente mit HTMl Imports</li>
+                    <li>mit einfacher API</li>
+                    <li>Import der Komponenten mit HTML Imports</li>
                     <li>one-way und two-way data binding</li>
-                    <li>Kapselung CSS, JS durch Shadow DOM</li>
+                    <li>echte Kapselung HTML, CSS, JS durch Shadow DOM</li>
                 </ul>
 
-            </section>
-            <section>
-                <h2>Beispiel Polymer Element</h2>
-                <ul>
-                    <li><a href="demo/gmapsjs.html" target="blank">Gmaps mit JS</a></li>
-                    <li><a href="demo/gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
-                </ul>
             </section>
             <section>
                 <h2>Beispiel Polymer Element</h2>
@@ -534,7 +600,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 </ul>
             </section>
             <section>
-                <h2>DOM Api</h2>
+                <h2>Lifecycle</h2>
                 <ul>
                     <li>Polymer.dom API</li>
                     <li>Zugriff auf Shadow DOM</li>
@@ -542,10 +608,16 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 </ul>
             </section>
             <section>
+                <h2>Beispiel Lifecycle</h2>
+                <ul>
+                    <li><a href="demo/03lifecycle.html" target="blank">Polymer Lifecycle</a></li>
+                </ul>
+            </section>
+            <section>
                 <h2>Shady DOM</h2>
                 <ul>
-                    <li>polyfill for Shadow</li>
-                    <li>hides shadow sub tree form document query</li>
+                    <li>polyfill for Shadow DOM</li>
+                    <li>simuliert Kapselung</li>
                     <li>great performance</li>
                     <li>Polymer benutzt Shady dom als default!</li>
                     <li>einschalten mit  ..?dom=shadow oder</li>
@@ -561,7 +633,8 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <h2>Beispiel Shadow DOM</h2>
                 <ul>
                     <li><a href="demo/shadowcss.html" target="blank">shadow dom direkt</a></li>
-                    <li><a href="demo/01greeting.html" target="blank">Polymer shady DOM</a></li>
+                    <li><a href="demo/polymershady.html" target="blank">Polymer shady DOM</a></li>
+                    <li><a href="demo/polymershady.html?dom=shadow" target="blank">Polymer shadow DOM</a></li>
                 </ul>
             </section>
             <section>
@@ -574,10 +647,16 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 </ul>
             </section>
             <section>
-                <h2>Beispiele Data Binding</h2>
+                <h2>Data Binding</h2>
+                <p>{{name}} two-way</p>
+                <p>[[name]] one-way</p>
+            </section>
+            <section>
+                <h2>Beispiel Data Binding</h2>
                 <ul>
-                    <li><a href="demo/01greeting.html" target="blank">Simple Element</a></li>
-                    <li><a href="demo/gmaps2.html" target="blank">gmaps.html mit Polymer data binding</a></li>
+                    <li><a href="demo/gmapsjs.html" target="blank">Gmaps mit JS</a></li>
+                    <li><a href="demo/gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
+                    <li><a href="demo/gmaps2.html" target="blank">gmaps.html mit Polymer</a></li>
                 </ul>
             </section>
             <section>
@@ -586,6 +665,11 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                     <li>listener</li>
                     <li>custom events</li>
                 </ul>
+            </section>
+            <section>
+                <h2>Beispiel Events</h2>
+                <p>on-tag</p>
+                <p>listener: handleSelect</p>
             </section>
             <section>
                 <h2>Data Elements</h2>
@@ -612,7 +696,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <p>Integration I18N</p>
             </section>
             <section>
-                <h2>Komponenten Bibliothek:</h2>
+                <h2>Komponentenbibliothek</h2>
                 <p>gesammelte Web Components findet man unter:</p>
                 <ul>
                     <li>https://customelements.io/</li>
@@ -621,8 +705,25 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <p>einfache Integration über: "bower install"</p>
             </section>
             <section>
+                <h2>Debugging</h2>
+                <ul>
+                    <li>$0 in DevTools</li>
+                    <li>src code aller Komponenten vorhanden.</li>
+                    <li>Breakpoints in Browser oder Remote Debugging</li>
+                </ul>
+                <p>einfache Integration über: "bower install"</p>
+            </section>
+            <section>
+                <h2>Produktionsdeployment</h2>
+                <ul>
+                    <li>vulcanize macht aus allen Resourcen ein einziges Html File</li>
+                    <li></li>
+                </ul>
+                <p>einfache Integration über: "bower install"</p>
+            </section>
+            <section>
                 <h2>Beispiel komplette SPA</h2>
-                <p><a href="https://gaming.youtube.com/">YouTube Gaming</a>
+                <p><a href="https://gaming.youtube.com/">YouTube Gaming</a><br>
                     <a href="http://vmgreed.scoop-gmbh.de/?url=hosts/">SCOOP Admin</a></p>
             </section>
             <section>
@@ -635,6 +736,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                     <li>grosse Komponenten Bibliothek </li>
                     <li>Support Layout, css custom styling</li>
                     <li>Data Elements reduzieren JS Code</li>
+                    <li>wartbarer Code, da gut gekapselt und wenig API</li>
                     <li>Support für Offline, WebWorker, push Notifications</li>
                 </ul>
             </section>
@@ -643,11 +745,21 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <p>Contra:</p>
                 <ul style="color: red">
                     <li>Versionsumbruch: 0.5 auf 1.0 (aktuell: 1.2.3)</li>
-                    <li>Dokumentation teilweise knapp.</li>
-                    <li>Doku für Web Components hilfreich.</li>
+                    <li>Internet Beispiele teilweise veraltet.</li>
+                    <li>Dokumentation knapp.</li>
+                    <li>Komponentenbibliothek Polymer eher auf Mobile ausgerichtet.</li>
+                    <li>Verständnis von Web Components hilfreich.</li>
                 </ul>
             </section>
-
+            <section>
+                <h1>Kaufempfehlung</h1>
+                <img style="width: 400px;" data-src="img/rating.png">
+                <p style="font-size: 50%">Caveat: Das hätte ich vor 5 Jahren auch bei GWT gesagt.</p>
+            </section>
+            <section>
+                <h1>Fragen</h1>
+                <img style="width: 300px;" data-src="img/fragezeichen.gif">
+            </section>
         </div>
 
     </div>

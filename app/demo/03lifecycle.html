@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>03 lifecycle</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+</head>
+
+<body>
+    <hello-name id="13">
+        <b style="color: red;">World</b>
+    </hello-name>
+
+    <hello-name id="14">
+        <b style="color: blue;">Earth</b>
+    </hello-name>
+
+
+
+    <dom-module id="hello-name">
+        <template>
+            <span id="header"></span>
+            <div style="text-align:center; width: 140px;">
+                Hello <content/>
+            </div>
+            <span id="footer"></span>
+            <br>
+            <br>
+        </template>
+
+        <script>
+            Polymer({
+                is: "hello-name",
+
+                created: function() {
+                    console.log(this.localName + '#' + this.id + ' was created');
+                },
+
+               ready: function() {
+                     // access a local DOM element by ID using this.$
+                    this.$.header.textContent = "xxxxxxxxxxxxxxxxxx";
+                    this.$.footer.textContent = "xxxxxxxxxxxxxxxxxx";
+                },
+                attached: function() {
+                    console.log(this.localName + '#' + this.id + ' was attached');
+                },
+
+                detached: function() {
+                    console.log(this.localName + '#' + this.id + ' was detached');
+                },
+
+                attributeChanged: function(name, type) {
+                    console.log(this.localName + '#' + this.id + ' attribute ' + name +
+                    ' was changed to ' + this.getAttribute(name));
+                }
+
+            });
+        </script>
+
+    </dom-module>
+</body>
+
+</html>
