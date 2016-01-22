@@ -12,33 +12,28 @@
         body {
             font-family: Roboto, 'Noto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         }
-
-        google-map {
-            height: 600px;
-            width: 800px;
-        }
     </style>
 </head>
 
 <body>
-    <h2>Simple element with property</h2>
 
-    <div>div with no border!</div>
+    <p>1. default:</p>
+    <greeting-name name="Michael"></greeting-name>
 
-    <greeting-name>
-    </greeting-name>
+    <p>2. set greeting:</p>
+    <greeting-name id="xx" greeting="Guten tag"></greeting-name>
 
-
-    <greeting-name id="xx" greeting="Guten tag">
-    </greeting-name>
-
+    <p id="x3">3. create Element:</p>
     <script>
         var dynamicEl = document.createElement("greeting-name");
-      dynamicEl.setAttribute("greeting", "Hello, Good Morning.");
-      console.log(dynamicEl.getAttribute("greeting"));
-      console.log(dynamicEl.greeting);
-
-      console.log(document.getElementById("xx").greeting);
+          dynamicEl.setAttribute("greeting", "Hello");
+       document.querySelector("#x3").appendChild(dynamicEl);
+    </script>
+    <p>4. create Element with Constructor:</p>
+    <script>
+        var dynamicEl = new GreetingName();
+          dynamicEl.setAttribute("greeting", "Good Morning");
+          dynamicEl.setAttribute("name", "Kai");
        document.body.appendChild(dynamicEl);
     </script>
 </body>

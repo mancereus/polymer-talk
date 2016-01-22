@@ -72,8 +72,10 @@
             </section>
             <section>
                 <h2>Warum?</h2>
-
-                <p>Browserumgebung entwickelt sich weiter. Gute Features aus den erfolgreichen Frameworks werden übernommen.</p>
+                <ul>
+                    <li>Browserumgebung entwickelt sich weiter. </li>
+                    <li>Gute Features aus den erfolgreichen Frameworks werden übernommen.</li>
+                </ul>
                 <ul>
                     <li>HTML 5</li>
                     <li>ES 2015</li>
@@ -92,13 +94,13 @@
                 <ul>
                     <li>Erstellung neuer Html Elemente: &lt;x-foo>Hi.&lt;/x-foo></li>
                     <li>Kapselung der nötigen Html, JS und CSS Daten</li>
-                    <li>Bündelung von 4 Spezifikationen: http://webcomponents.org/</li>
+                    <li>Bündelung von 4 neuen W3C Spezifikationen: http://webcomponents.org/</li>
                 </ul>
             </section>
             <section>
                 <h2>HTML Document</h2>
                 <ul>
-                    <li>Browser erzeugt aus HTML Elementen document mt DOM</li>
+                    <li>Browser erzeugt aus HTML Elementen document mit DOM</li>
                     <li>HTML Elements sind in Spec vorgegeben: a, input,...</li>
                     <li>unbekannte Elemente werden ignoriert: &lt;abc/></li>
                 </ul>
@@ -399,9 +401,9 @@ document.registerElement('x-foo-from-template', {prototype: proto});
             <section>
                 <h2>Web Framework Konzepte</h2>
                 <ul>
-                    <li>früher: Server rendert fertige templates</li>
-                    <li>jetzt: Client holt Daten und templates und rendert diese selbständig</li>
-                    <li>Seite wird aus Komponenten/Widgets zusammengebaut.</li>
+                    <li>früher: Server rendert fertiges HTML-Teile</li>
+                    <li>jetzt: Client holt Daten und Templates und rendert diese selbständig</li>
+                    <li>Seite wird aus Templates/Komponenten/Widgets zusammengebaut.</li>
                     <li>Single Page Application: nur noch eine Seite</li>
 
                 </ul>
@@ -412,7 +414,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                     <li>Framework nutzt Features der Browser Engine.</li>
                     <li>Trennung in Html, CSS, JS</li>
                     <li>Support für Layout</li>
-                    <li>frei verfügbare Komponentenbibliothek</li>
+                    <li>frei verfügbare umfangreiche Komponentenbibliothek</li>
                     <li>Komponenten mit anpassbarem Styling.</li>
                     <li>Template Engine</li>
                     <li>one-way und two-way data binding</li>
@@ -427,8 +429,9 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                     <li>Internationalisierung</li>
                     <li>Behindertengerecht, ARIA, HighContrast</li>
                     <li>Sicherheitschecks</li>
-                    <li>export pdf, excel, print</li>
-                    <li>Kundenstyling css integrierbar</li>
+                    <li>Responsive Layout (Mobile)</li>
+                    <li>export Teile der Seite nach PDF, Excel, Print</li>
+                    <li>Kundenstyling css-file integrierbar</li>
                     <li>Support für Kundenbrowser (IE9+ ??)</li>
                     <li>Support für "beliebige" Browser (Safari, Android Browser)</li>
                 </ul>
@@ -436,20 +439,20 @@ document.registerElement('x-foo-from-template', {prototype: proto});
             <section>
                 <h2>Entwicklung Anforderungen</h2>
                 <ul>
-                    <li>Framework Dokumentation, Beispiele</li>
+                    <li>Framework mit Dokumentation, Beispiele</li>
                     <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
                     <li>sehr gute Performance und Memory Consumption</li>
-                    <li>Debugging und Error handling im Browser</li>
+                    <li>Debugging und Error Handling im Browser</li>
+                    <li>Mapping zwischen Server Data and Client Data</li>
                 </ul>
             </section>
             <section>
                 <h2>Web Components</h2>
                 <p>Pro:</p>
                 <ul style="color: green">
-                    <li>Template Engine</li>
+                    <li>Template Engine standardisiert in BrowserEngine</li>
                     <li>Komponenten über custom elements</li>
                     <li>Default DOM Framework und API</li>
-                    <li>Kann in Browser Engine optimiert werden</li>
                 </ul>
             </section>
             <section>
@@ -482,8 +485,8 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <ul style="color: red">
                     <li>basiert nicht auf Standard Web Components</li>
                     <li>hat "steile" Lernkurve und komplexe API</li>
-                    <li>hat eigene Template Engine, daher keine Kapselung durch shadow DOM</li>
-                    <li>Fehlerursache manchmal kryptisch</li>
+                    <li>hat eigene Template Engine, daher keine Kapselung durch Shadow DOM</li>
+                    <li>Fehlerursache manchmal kryptisch ?</li>
                     <li>Versionsumbruch 1.0 / 2.0</li>
                 </ul>
             </section>
@@ -500,7 +503,7 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 <h2>Polymer Erfahrungen</h2>
                 <ul>
                     <li>Polymer Konferenz in Amsterdam</li>
-                    <li>Polymer in privaten Projekten</li>
+                    <li>Polymer in privaten und internen Projekten</li>
                     <img data-src="img/conference.png">
                 </ul>
             </section>
@@ -523,11 +526,42 @@ document.registerElement('x-foo-from-template', {prototype: proto});
                 </ul>
             </section>
             <section>
+                <h2>Beispiel Polymer Element</h2>
+                <ul>
+                    <li><a href="demo/01helloworld.html" target="blank">Polymer Hello World</a></li>
+                    <li><a href="demo/01helloworld2.html" target="blank">Polymer Hello World with content</a></li>
+                    <li><a href="demo/01greeting.html" target="blank">Polymer Greetings</a></li>
+                </ul>
+            </section>
+            <section>
                 <h2>DOM Api</h2>
                 <ul>
                     <li>Polymer.dom API</li>
                     <li>Zugriff auf Shadow DOM</li>
                     <li>Steuerung der custom elements</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Shady DOM</h2>
+                <ul>
+                    <li>polyfill for Shadow</li>
+                    <li>hides shadow sub tree form document query</li>
+                    <li>great performance</li>
+                    <li>Polymer benutzt Shady dom als default!</li>
+                    <li>einschalten mit  ..?dom=shadow oder</li>
+                    <pre><code>
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    </script>
+                    </code></pre>
+                </ul>
+            </section>
+            <section>
+                <h2>Beispiel Shadow DOM</h2>
+                <ul>
+                    <li><a href="demo/shadowcss.html" target="blank">shadow dom direkt</a></li>
+                    <li><a href="demo/01greeting.html" target="blank">Polymer shady DOM</a></li>
                 </ul>
             </section>
             <section>
@@ -588,7 +622,8 @@ document.registerElement('x-foo-from-template', {prototype: proto});
             </section>
             <section>
                 <h2>Beispiel komplette SPA</h2>
-                <p>SCOOP Admin</p>
+                <p><a href="https://gaming.youtube.com/">YouTube Gaming</a>
+                    <a href="http://vmgreed.scoop-gmbh.de/?url=hosts/">SCOOP Admin</a></p>
             </section>
             <section>
                 <h2>Polymer</h2>

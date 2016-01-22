@@ -1,4 +1,4 @@
-<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/polymer/polymer.html">
 
 
 <dom-module id="greeting-name">
@@ -6,34 +6,32 @@
         <style>
             div {
                 margin: 12px;
-                width: 100px;
+                width: 200px;
                 height: 30px;
                 padding: 20px;
+                text-align: center;
                 border: 1px solid black;
+                background-color: deepskyblue;
             }
             /* CSS rules for your element */
         </style>
 
-        <!-- local DOM for your element -->
-
-        <div>{{greeting}}</div>
-        <!-- data bindings in local DOM -->
-        <!--
-            <input type="text" value="{{greeting::input}}">-->
+        <div>{{greeting}}<br><b>{{name}}</b></div>
     </template>
     <script>
-        // element registration
-        Polymer({
+        // returns Constructor
+       GreetingName =  Polymer({
             is: "greeting-name",
 
-            // add properties and methods on the element's prototype
-
             properties: {
-                // declare properties for the element's public API
                 greeting: {
                     type: String,
                     value: "Hello"
-                }
+                },
+                name: {
+                    type: String,
+                    value: "Jörg"
+                },
             }
         }
 

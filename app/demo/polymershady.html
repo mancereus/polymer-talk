@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>new Element</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    </script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../../bower_components/font-roboto/roboto.html">
+
+    <style>
+        body {
+            font-family: Roboto, 'Noto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        google-map {
+            height: 600px;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Simple element with property</h2>
+
+    <div>div with no border!</div>
+
+    <div class="greeting-name">css leaks! no shadow dom!!</div>
+
+    <greeting-name>
+    </greeting-name>
+
+
+    <dom-module id="greeting-name">
+        <style>
+            div {
+                margin: 12px;
+                width: 100px;
+                height: 30px;
+                padding: 20px;
+                border: 1px solid black;
+                background-color: deepskyblue;
+            }
+            /* CSS rules for your element */
+        </style>
+
+        <template>
+            <div>{{greeting}}</div>
+        </template>
+        <script>
+            // element registration
+        Polymer({
+            is: "greeting-name",
+
+            // add properties and methods on the element's prototype
+
+            properties: {
+                // declare properties for the element's public API
+                greeting: {
+                    type: String,
+                    value: "Hello"
+                }
+            }
+        }
+
+            );
+        </script>
+
+    </dom-module>
+
+</body>
+
+</html>

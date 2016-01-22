@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://localhost:8000/app/demo/01greeting.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style scope="greeting-name">div.greeting-name {
+  margin: 12px;
+                width: 100px;
+                height: 30px;
+                padding: 20px;
+                border: 1px solid black;
+                background-color: deepskyblue;
+}</style><style>body {transition: opacity ease-in 0.2s; } 
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
+</style>
+    <title>new Element</title>
+    <script src="./new Element_files/webcomponents.js"></script><style type="text/css"></style>
+
+    <link rel="import" href="http://localhost:8000/bower_components/font-roboto/roboto.html">
+    <link rel="import" href="http://localhost:8000/app/demo/greetingName.html">
+
+    <style>
+        body {
+            font-family: Roboto, 'Noto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p>1. default:</p>
+    <greeting-name name="Bert">
+        
+
+        <!-- local DOM for your element -->
+
+        <div class="style-scope greeting-name">Hello Bert</div>
+        <!-- data bindings in local DOM -->
+        <!--
+            <input type="text" value="{{greeting::input}}">-->
+    </greeting-name>
+
+    <p>2. set greeting:</p>
+    <greeting-name id="xx" greeting="Guten tag">
+        
+
+        <!-- local DOM for your element -->
+
+        <div class="style-scope greeting-name">Guten tag </div>
+        <!-- data bindings in local DOM -->
+        <!--
+            <input type="text" value="{{greeting::input}}">-->
+    </greeting-name>
+
+    <p id="x3">3. create Element:<greeting-name greeting="Hello, Good Morning.">
+        
+
+        <!-- local DOM for your element -->
+
+        <div class="style-scope greeting-name">Hello, Good Morning. </div>
+        <!-- data bindings in local DOM -->
+        <!--
+            <input type="text" value="{{greeting::input}}">-->
+    </greeting-name></p>
+    <script>
+        var dynamicEl = document.createElement("greeting-name");
+          dynamicEl.setAttribute("greeting", "Hello, Good Morning.");
+       document.querySelector("#x3").appendChild(dynamicEl);
+    </script>
+    <p>4. create Element:</p>
+    <script>
+        var dynamicEl = new Greeting-Name();
+          dynamicEl.setAttribute("greeting", "Hello, Good Morning.");
+       document.body.appendChild(dynamicEl);
+    </script>
+<script src="http://0.0.0.0:35729/livereload.js?snipver=1" async="" defer=""></script>
+
+</body></html>
