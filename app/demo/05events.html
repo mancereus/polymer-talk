@@ -29,13 +29,19 @@
                     background-color: deepskyblue;
                 }
             </style>
+
+            <h3>global events with listener:</h3>
             <div>Tap me</div>
             <div>I will respond</div>
 
             <div id="special">I am special!</div>
 
+            <h3>inner events on dom elements:</h3>
             <button on-click="buttonClick">Click Me</button>
 
+            <h3>custom events on dom elements:</h3>
+            <button on-click="fireEvent">Fire custom event</button>
+            <input id="out" type="text">
         </template>
 
         <script>
@@ -45,7 +51,9 @@
 
       listeners: {
         'tap': 'regularTap',
-        'special.tap': 'specialTap'
+        'special.tap': 'specialTap',
+
+        'kick': 'handleKickEvent'
       },
 
       regularTap: function(e) {
@@ -60,6 +68,13 @@
         e.stopPropagation();
       },
 
+      fireEvent: function(e) {
+        this.fire('kick', {kick: "YEAH!!"});
+      },
+      handleKickEvent: function(e) {
+        console.log("event listener..");
+        this.$.out.value += e.detail.kick;
+      },
 
     });
         </script>
