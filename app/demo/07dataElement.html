@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>polymer array properties</title>
+	<script src="../../../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<script src="data2.js"></script>
+	<link rel="import" href="imports.html">
+
+</head>
+
+<body>
+	<h1>Array handling</h1>
+	<h2>minimal template with attribute</h2>
+	<template is="dom-bind">
+		<tst-data data="{{data}}"></tst-data>
+		<tst-view data="{{data}}"></tst-view>
+	</template>
+    <style>
+        div {
+            padding: 4px;
+            width: 40px;
+            border: 1px solid blue;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+	<dom-module id="tst-data">
+		<script>
+			Polymer({
+		is: 'tst-data',
+		properties: {
+			data: {
+				notify: true,
+				value: function() {
+					return cards;
+					}
+			}
+		}
+	});
+		</script>
+
+	</dom-module>
+
+	<dom-module id="tst-view">
+
+		<template>
+			<input type="button" on-click="insert" value="insert" />
+                <template is="dom-repeat" items="{{data.stack}}">
+                    <div on-track="trackElement" on-tap="tapElement" draggable="true">{{item.key}}</div>
+                </template>
+			<br>
+			<input type="button" on-click="move" to="player1" value="move" />
+            <div container="player1">
+			<template is="dom-repeat" items="{{data.player1}}">
+				<div>{{item.key}}</div>
+			</template>
+            </div>
+		</template>
+
+		<script>
+			Polymer({
+				is: 'tst-view',
+				properties: {
+					name: {
+						type: String,
+						value: "test xy!"
+					},
+					data: {
+						type: Array,
+						value: function() {return [];}
+					}
+				},
+				observers: [
+					'dataModified(data.splices)'
+				],
+				tapElement: function(e) {
+					this.push('data.player1', e.model.item);
+					this.splice('data.stack',e.model.index, 1);
+				},
+				trackElement: function(e) {
+                    switch(e.detail.state) {
+                    case 'start':
+                        console.log('Tracking started!');
+                        break;
+                    case 'track':
+                        console.log('Tracking in progress... ' +
+                        e.detail.x + ', ' + e.detail.y);
+                        break;
+                    case 'end':
+                        console.log(e.model.item);
+                        console.log('Tracking ended on ' + e.detail.hover());
+
+                        break;
+                    }
+                },
+				insert: function() {
+					this.push('data.stack', {key:"Jack"});
+				},
+				handleDrop: function() {
+					console.log("handleDrop");
+				},
+				move: function() {
+					var item = this.pop('data.stack');
+					this.push('data.player1', item);
+				},
+				dataModified: function(changeRecord) {
+					console.log("mod" + changeRecord);
+					if(changeRecord != undefined) {
+						console.log(changeRecord.keySplices);
+						console.log(changeRecord.indexSplices);
+					}
+				}
+			});
+		</script>
+
+	</dom-module>
+	<hr/>
+
+
+
+</body>
+
+</html>

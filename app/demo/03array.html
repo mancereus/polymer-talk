@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>polymer array properties</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+</head>
+
+<body>
+    <h1>Array handling</h1>
+    <tst-view></tst-view>
+
+    <dom-module id="tst-view">
+
+        <template>
+            <style>
+                div {
+                    padding: 4px;
+                    width: 40px;
+                    background-color: lightskyblue;
+                    border: 2px solid dodgerblue;
+                    margin: 2px;
+                }
+            </style>
+            <table>
+                <tr>
+                    <td>
+                        <input type="button" on-click="insert" value="insert" />
+                    </td>
+                    <td>
+                        <input type="button" on-click="move" value="move first" />
+                    </td>
+                    <td>divisible by 3</td>
+                </tr>
+                <tr>
+                    <td>
+                        <template is="dom-repeat" items="{{data}}">
+                            <div>{{item.key}}</div>
+                        </template>
+                    </td>
+                    <td>
+                        <template is="dom-repeat" items="{{data2}}">
+                            <div>{{item.name}}
+                            </div>
+                        </template>
+                    </td>
+                    <td>
+                        <template is="dom-repeat" items="{{data2}}" filter="div3">
+                            <div>{{item.name}}
+                            </div>
+                        </template>
+                    </td>
+                </tr>
+            </table>
+
+
+
+
+        </template>
+
+        <script>
+            Polymer({
+				is: 'tst-view',
+				properties: {
+					data: {
+						type: Array,
+						value: function() {
+                            return [{key: 1, name: "eins"},
+                                    {key: 2, name: "zwei"},
+                                    {key: 3, name: "drei"},
+                                    ];
+                            }
+					},
+                    data2: {
+						type: Array,
+						value: function() {
+                            return [];
+                            }
+                    }
+				},
+				insert: function() {
+                    var next = this.data.length +1;
+					this.push('data', {key: next, name: "viele"});
+				},
+				move: function() {
+					var item = this.shift('data');
+                    if (item !== undefined)
+    					this.push('data2', item);
+				},
+                div3: function(item) {
+                    return item.key % 3 == 0;
+                }
+			});
+        </script>
+
+    </dom-module>
+    <hr/>
+
+
+
+</body>
+
+</html>
