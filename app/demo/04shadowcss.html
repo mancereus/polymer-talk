@@ -12,14 +12,14 @@
             font-family: cursive;
         }
     </style>
-    <button class="btn">I'm a regular button</button>
+    <button>I'm a regular button</button>
     <div></div>
 
     <script>
         var host = document.querySelector('div');
       var root = host.createShadowRoot();
-      root.innerHTML = '<style>.btn { font-size: 24px; color: blue; } </style>' +
-                       '<button class="btn">I\'m a shadow button</button>'
+      root.innerHTML = '<style> button { font-size: 24px; color: blue; } </style>' +
+                       '<button>I\'m a shadow button</button>'
     </script>
 </body>
 

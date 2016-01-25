@@ -61,13 +61,13 @@
                     <li>...</li>
                     <li>JSF</li>
                     <li>jQuery</li>
-                    <li>Apache Wicket</li>
+                    <li>Wicket</li>
                     <li>GWT</li>
                     <li>Dart</li>
                 </ul>
             </section>
             <section>
-                <h2>Schon wieder ein Web Framework?</h2>
+                <h2>Ja, schon wieder.</h2>
                 <p>aktuell beliebt:</p>
                 <ul>
                     <li>Angular 1/2</li>
@@ -79,14 +79,19 @@
             <section>
                 <h2>Warum?</h2>
                 <ul>
+                    <li>Browser Client kann mehr Funktionen übernehmen</li>
                     <li>Browserumgebung entwickelt sich weiter</li>
                     <li>Gute Features werden in Browser übernommen</li>
-                    <li>Client kann mehr Funktionen übernehmen</li>
                 </ul>
             </section>
             <section>
                 <h2>Neues Browser Feature</h2>
                 <p>Web Components...</p>
+                <ul>
+                    <li>beginnt 2011</li>
+                    <li>Polymer seit 2013</li>
+                    <li>Browser Vereinbarung Juni 2015</li>
+                </ul>
             </section>
             <section>
                 <h1>Teil 1: Theorie</h1>
@@ -177,8 +182,7 @@
                     in a document.</p>
                     <ul>
                         <li>neue Elemente müssen ein "-" enthalten!</li>
-                        <li>document erhält eine Registry, in der neue Elemente registriert werden können.</li>
-                        <li>Element Registrierung kann auch nach der Verwendung erfolgen!</li>
+                        <li>HTML Document erhält eine Registry, in der neue Elemente registriert werden können.</li>
                     </ul>
             </section>
             <section>
@@ -207,10 +211,7 @@
                 <p>kann neues Element erzeugen</p>
                 <pre><code class="hljs" contenteditable>
             //create element x-foo
-            document.registerElement('x-foo', {
-                prototype: Object.create(null, {
-                })
-            });
+            document.registerElement('x-foo');
 
             //use element x-foo
             <x-foo></x-foo>
@@ -221,6 +222,15 @@
             document.body.appendChild(xFoo);
 					</code></pre>
 
+            </section>
+            <section>
+                <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
+                    <ul>
+                        <li>Element Registrierung kann auch nach der Verwendung erfolgen!</li>
+                        <li>Element startet als HtmlUnknownElement und wechselt nach Registrierung den Prototype</li>
+                        <li>&lt;p is="x-foo"> Attribute ist unschön.</li>
+                        <li>Accessibility für custom-element ohne is="" fehlt</li>
+                    </ul>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
@@ -298,7 +308,7 @@
                         <li>&lt;template> ist ein neues HtmlElement.</li>
                         <li>&lt;template> erzeugt ein Dokument Fragment.</li>
                         <li>Der Inhalt von template wird nicht direkt gerendert.</li>
-                        <li>nur über API integriert.</li>
+                        <li>über API integrierbar</li>
                     </ul>
             </section>
             <section>
@@ -435,7 +445,7 @@
                 <p>webcomponents.js für alle 4 Specs
                     <br>plus ES6 Weak-Maps und Mutation Observer</p>
                 <code><pre>&lt;script src="webcomponentsjs/webcomponents.js"/></pre></code>
-                <p>echte Kapselung von CSS, JS in Shadow DOM kann nicht in polyfill realisiert werden.</p>
+                <p>echte Kapselung von CSS, JS in Shadow DOM kann in polyfill nur simuliert werden.</p>
             </section>
 
             <section>
@@ -454,10 +464,11 @@
             </section>
 
             <section>
-                <h1>Teil 2: Web Framework Anforderungen</h1>
+                <h1>Teil 2: Intermezzo</h1>
+                <h3>Web Framework Anforderungen</h3>
             </section>
             <section>
-                <h2>Workflow</h2>
+                <h2>Browser Workflow</h2>
                 <ul>
                     <li>Laden einer Html Seite im Browser (mit css, js)</li>
                     <li>DOM erzeugen aus HtmlElements und Custom Elements</li>
@@ -478,20 +489,6 @@
                 </ul>
             </section>
             <section>
-                <h2>Technische Anforderungen</h2>
-                <ul>
-                    <li>Framework nutzt Features der Browser Engine.</li>
-                    <li>Trennung in Html, CSS, JS</li>
-                    <li>Template Engine</li>
-                    <li>one-way und two-way data binding</li>
-                    <li>frei verfügbare umfangreiche Komponentenbibliothek</li>
-                    <li>Support für Layout</li>
-                    <li>Komponenten mit anpassbarem Styling.</li>
-                    <li>Navigation in SPA mit History</li>
-                   <li>Support für zukünftige Features: Offline, locale Storage, WebWorker, Push Notification</li>
-                </ul>
-            </section>
-            <section>
                 <h2>Fachliche Anforderungen</h2>
                 <ul>
                     <li>Komponente: Charts, Eingabe mit Validierung</li>
@@ -507,15 +504,30 @@
                 </ul>
             </section>
             <section>
+                <h2>Technische Anforderungen</h2>
+                <ul>
+                    <li>Framework nutzt Features der Browser Engine.</li>
+                    <li>Trennung in Html, CSS, JS</li>
+                    <li>Template Engine</li>
+                    <li>Data Binding: one-way und two-way</li>
+                    <li>frei verfügbare umfangreiche Komponentenbibliothek</li>
+                    <li>Support für Layout</li>
+                    <li>Komponenten mit anpassbarem Styling.</li>
+                    <li>Navigation in SPA mit History</li>
+                   <li>Support für zukünftige Features: Offline, locale Storage, WebWorker, Push Notification</li>
+                </ul>
+            </section>
+            <section>
                 <h2>Entwicklung Anforderungen</h2>
                 <ul>
                     <li>Framework mit Dokumentation, Beispiele</li>
                     <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
                     <li>sehr gute Performance und Memory Consumption</li>
                     <li>IDE Support</li>
+                    <li>einfacher Download und Einbindung von Komponenten</li>
                     <li>ES6 oder TypeScript Support</li>
-                    <li>Debugging und Error Handling im Browser</li>
-                    <li>Mapping zwischen Server Data and Client Data</li>
+                    <li>Debugging und Error Handling im Browser und IDE</li>
+                    <li>Mapping Data Structure zwischen Server and Client</li>
                     <li>Wartbarkeit des Codes</li>
                 </ul>
             </section>
@@ -523,16 +535,19 @@
                 <h2>Web Components</h2>
                 <p>Pro:</p>
                 <ul style="color: green">
-                    <li>Template Engine standardisiert in BrowserEngine</li>
+                    <li>Template Engine standardisiert in Browser</li>
+                    <li>mächtiges neues HTML Konzept: custom elements</li>
                     <li>Komponenten über custom elements</li>
-                    <li>Default DOM Framework und API</li>
+                    <li>einfache API</li>
+                    <li>Default DOM Framework</li>
                 </ul>
             </section>
             <section>
                 <h2>Web Components</h2>
                 <p>Contra:</p>
                 <ul style="color: red">
-                    <li>keine Lösung für data binding oder layout support</li>
+                    <li>keine Lösung für data binding </li>
+                    <li>keine Lösung für layout support</li>
                     <li>keine Lösung für I18n, ARIA, Sicherheit</li>
                     <li>kein Framework, sondern nur Erweiterung der HTML Spec</li>
                     <li>umständlicher JS Code wird durch standardisierten umständlichen JS Code ersetzt.</li>
@@ -540,16 +555,36 @@
             </section>
             <section>
                 <h2>Angular 1/2</h2>
+                <p style="font-size: 70%">HTML is great for declaring static documents, but it falters when we try to use it for declaring dynamic views in web-applications. AngularJS lets you extend HTML vocabulary for your application. —angularjs.org</p>
+                <pre><code>&lt;html ng-app>
+&lt;head>
+  <script src="angular.js"></script>
+  <script src="controllers.js"></script>
+&lt;/head>
+&lt;body>
+  <div ng-controller='HelloController'>
+    <p>{{greeting.text}}, World</p>
+  </div>
+&lt;/body>
+&lt;/html>
+
+//controllers.js
+function HelloController($scope) {
+  $scope.greeting = { text: 'Hello' };
+}
+                </code></pre>
+            </section>
+            <section>
+                <h2>Angular 1/2</h2>
                 <p>Pro:</p>
                 <ul style="color: green">
+                    <li>eigene Template Engine</li>
+                    <li>one-way two-way data binding</li>
                     <li>SPA, modularer Aufbau</li>
-                    <li>Template Engine</li>
-                    <li>two-way data binding</li>
-                    <li>MVC mit $scope</li>
-                    <li>Support für I18N, ARIA, Sicherheit ??</li>
+                    <li>MVC mit $scope (Angular 1)</li>
                     <li>Komponenten über Directives</li>
                     <li>grosse Komponenten Bibliothek</li>
-                    <li>Web Components lassen sich integrieren</li>
+                    <li>Support für I18N, ARIA</li>
                 </ul>
             </section>
             <section>
@@ -557,9 +592,10 @@
                 <p>Contra:</p>
                 <ul style="color: red">
                     <li>basiert nicht auf Standard Web Components</li>
-                    <li>hat "steile" Lernkurve und komplexe API</li>
-                    <li>hat eigene Template Engine, daher keine Kapselung durch Shadow DOM</li>
-                    <li>Fehlerursache manchmal kryptisch ?</li>
+                    <li>umfangreiche eigene JS API</li>
+                    <li>Angular 1 Konzepte anfangs unklar <br>(Directive, Controller, Service) </li>
+                    <li>keine echte Kapselung durch Shadow DOM</li>
+                    <li>Fehlerursache manchmal kryptisch</li>
                     <li>Versionsumbruch 1.0 / 2.0</li>
                 </ul>
             </section>
@@ -582,12 +618,14 @@
             </section>
             <section>
                 <h2>Polymer</h2>
+                <p>nutzt Web Components im Browser</p>
                 <ul>
-                    <li>Erstellung neuer Komponenten über Web Components</li>
-                    <li>mit einfacher API</li>
+                    <li>nutzt template engine und custom-element</li>
                     <li>Import der Komponenten mit HTML Imports</li>
-                    <li>one-way und two-way data binding</li>
                     <li>echte Kapselung HTML, CSS, JS durch Shadow DOM</li>
+                    <li>einfache Polymer API versteckt Web Components Code</li>
+                    <li>plus Data binding</li>
+                    <li>plus Layout Support</li>
                 </ul>
 
             </section>
@@ -596,54 +634,20 @@
                 <ul>
                     <li><a href="demo/01helloworld.html" target="blank">Polymer Hello World</a></li>
                     <li><a href="demo/01helloworld2.html" target="blank">Polymer Hello World with content</a></li>
+                    <li><a href="demo/01helloworld3.html" target="blank">Polymer extends input</a></li>
                     <li><a href="demo/01greeting.html" target="blank">Polymer Greetings</a></li>
                 </ul>
             </section>
             <section>
-                <h2>Lifecycle</h2>
+                <h2>Element Lifecycle</h2>
                 <ul>
-                    <li>Polymer.dom API</li>
-                    <li>Zugriff auf Shadow DOM</li>
-                    <li>Steuerung der custom elements</li>
+                    <li>WebComponent Callbacks</li>
                 </ul>
             </section>
             <section>
                 <h2>Beispiel Lifecycle</h2>
                 <ul>
-                    <li><a href="demo/03lifecycle.html" target="blank">Polymer Lifecycle</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Shady DOM</h2>
-                <ul>
-                    <li>polyfill for Shadow DOM</li>
-                    <li>simuliert Kapselung</li>
-                    <li>great performance</li>
-                    <li>Polymer benutzt Shady dom als default!</li>
-                    <li>einschalten mit  ..?dom=shadow oder</li>
-                    <pre><code>
-    <script>
-        window.Polymer = window.Polymer || {};
-        window.Polymer.dom = 'shadow';
-    </script>
-                    </code></pre>
-                </ul>
-            </section>
-            <section>
-                <h2>Beispiel Shadow DOM</h2>
-                <ul>
-                    <li><a href="demo/shadowcss.html" target="blank">shadow dom direkt</a></li>
-                    <li><a href="demo/polymershady.html" target="blank">Polymer shady DOM</a></li>
-                    <li><a href="demo/polymershady.html?dom=shadow" target="blank">Polymer shadow DOM</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Data Binding</h2>
-                <ul>
-                    <li>properties</li>
-                    <li>observer</li>
-                    <li>notifypath</li>
-                    <li>support für Arrays und Objects</li>
+                    <li><a href="demo/02lifecycle.html" target="blank">Polymer Lifecycle</a></li>
                 </ul>
             </section>
             <section>
@@ -652,11 +656,72 @@
                 <p>[[name]] one-way</p>
             </section>
             <section>
+                <h2>Data Binding</h2>
+                <p>properties sind Schnittstelle nach aussen</p>
+                <ul>
+                    <li>type: String, Number, Array, Object</li>
+                    <li>value: value|function()</li>
+                    <li>observe: function()</li>
+                    <li>notify: true|false</li>
+                </ul>
+            </section>
+            <section>
                 <h2>Beispiel Data Binding</h2>
                 <ul>
-                    <li><a href="demo/gmapsjs.html" target="blank">Gmaps mit JS</a></li>
-                    <li><a href="demo/gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
-                    <li><a href="demo/gmaps2.html" target="blank">gmaps.html mit Polymer</a></li>
+                    <li><a href="demo/03gmapsjs.html" target="blank">Gmaps mit JS</a></li>
+                    <li><a href="demo/03gmaps.html" target="blank">gmaps.html mit Polymer</a></li>
+                    <li><a href="demo/03gmaps2.html" target="blank">gmaps.html mit Polymer</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Data Binding Array</h2>
+                <ul>
+                    <li>template is=dom-repeat</li>
+                    <li>tempalte is=dom-if</li>
+                    <li>filter und sort support</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Beispiel Data Binding Array</h2>
+                <ul>
+                    <li><a href="demo/03array.html" target="blank">Data binding Array</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Data Binding Object</h2>
+                <ul>
+                    <li>observer</li>
+                    <li>notifypath</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Beispiel Data Binding Object</h2>
+                <ul>
+                    <li><a href="demo/03object.html" target="blank">Data binding Object</a></li>
+                </ul>
+            </section>
+            <section>
+                <h2>Shady DOM</h2>
+                <p style="color: red;">Polymer benutzt Shady dom als default!</p>
+                <ul>
+                    <li>polyfill for Shadow DOM</li>
+                    <li>simuliert Kapselung</li>
+                    <li>great performance</li>
+                    <li>einschalten mit  ..?dom=shadow oder</li>
+                </ul>
+                    <pre><code>
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    </script>
+                    </code></pre>
+            </section>
+            <section>
+                <h2>Beispiel Shadow DOM</h2>
+                <ul>
+                    <li><a href="demo/04shadowcss.html" target="blank">shadow dom direkt</a></li>
+                    <li><a href="demo/04polymershady.html" target="blank">Polymer shady DOM</a></li>
+                    <li><a href="demo/04polymershady.html?dom=shadow" target="blank">Polymer shadow DOM</a></li>
                 </ul>
             </section>
             <section>
@@ -673,9 +738,8 @@
             </section>
             <section>
                 <h2>Data Elements</h2>
-                <p>bevorzugtes Pattern: </p>
                 <p>Custom Elements ohne GUI (kein template)</p>
-                <p>Trennung zwischen Bereitstellung der Daten und Anzeige</p>
+                <p>bevorzugtes Pattern zur Applikationserstellung </p>
             </section>
             <section>
                 <h2>Beispiel Data Elements</h2>
@@ -694,6 +758,10 @@
                 <h2>Mixins durch Behavior</h2>
                 <p>Integration ARIA</p>
                 <p>Integration I18N</p>
+            </section>
+            <section>
+                <h2>Beispiel Behavior</h2>
+                <p>draggable</p>
             </section>
             <section>
                 <h2>Komponentenbibliothek</h2>
@@ -751,6 +819,7 @@
             </section>
             <section>
                 <h1>Kaufempfehlung</h1>
+                <p>ein Schritt in die richtige Richtung...</p>
                 <img style="width: 400px;" data-src="img/rating.png">
                 <p style="font-size: 50%">Caveat: Das hätte ich vor 5 Jahren bei GWT auch gesagt.</p>
             </section>

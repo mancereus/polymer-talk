@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Hello World</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+</head>
+
+<body>
+    <input is="hello-input" name="world"></hello-name>
+
+    <dom-module id="hello-input">
+        <script>
+            Polymer({
+                is: "hello-input",
+                properties: {
+                    name: String
+                },
+                extends: 'input',
+                created: function() {
+                   this.style.border = '3px solid green';
+                },
+                ready: function() {
+                   this.value = 'hello ' + this.name;
+                },
+
+            });
+        </script>
+
+    </dom-module>
+</body>
+
+</html>
