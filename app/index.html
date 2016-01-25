@@ -726,15 +726,18 @@ function HelloController($scope) {
             </section>
             <section>
                 <h2>event handling</h2>
+                <p>browser events und custom events</p>
                 <ul>
-                    <li>listener</li>
-                    <li>custom events</li>
+                    <li>für [host]: listeners: {}</li>
+                    <li>für shadow tree: &lt;button on-click="methodName"></li>
                 </ul>
             </section>
             <section>
                 <h2>Beispiel Events</h2>
-                <p>on-tag</p>
-                <p>listener: handleSelect</p>
+                <ul>
+                    <li><a href="demo/05listener.html" target="blank">listener for host element</a></li>
+                    <li><a href="demo/05event.html" target="blank">Polymer shady DOM</a></li>
+                </ul>
             </section>
             <section>
                 <h2>Data Elements</h2>
@@ -748,6 +751,7 @@ function HelloController($scope) {
             </section>
             <section>
                 <h2>Layout und Custom Styling</h2>
+                <p>wie kann man shadow von aussen stylen?</p>
             </section>
             <section>
                 <h2>Beispiel Layout und Styling</h2>
@@ -776,15 +780,16 @@ function HelloController($scope) {
                 <h2>Debugging</h2>
                 <ul>
                     <li>$0 in DevTools</li>
-                    <li>src code aller Komponenten vorhanden.</li>
-                    <li>Breakpoints in Browser oder Remote Debugging</li>
+                    <li>Source Code aller Komponenten vorhanden.</li>
+                    <li>Breakpoints im Browser</li>
+                    <li>oder Remote Debugging</li>
                 </ul>
                 <p>einfache Integration über: "bower install"</p>
             </section>
             <section>
                 <h2>Produktionsdeployment</h2>
                 <ul>
-                    <li>vulcanize macht aus allen Resourcen ein einziges Html File</li>
+                    <li>"gulp vulcanize" macht aus allen Resourcen ein einziges Html File</li>
                 </ul>
             </section>
             <section>

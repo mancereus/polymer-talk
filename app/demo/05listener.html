@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>listener</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+</head>
+
+<body>
+    <x-tap/>
+
+    <dom-module id="x-tap">
+
+        <template>
+            <style>
+                :host {
+                    background-color: gray;
+                }
+                div {
+                    border: 2px solid red;
+                    margin: 12px;
+                    width: 120px;
+                    padding: 12px;
+                    background-color: orange;
+                }
+
+                #special {
+                    background-color: deepskyblue;
+                }
+            </style>
+            <div>Tap me</div>
+            <div>I will respond</div>
+
+            <div id="special">I am special!</div>
+
+            <button on-click="buttonClick">Click Me</button>
+
+        </template>
+
+        <script>
+            Polymer({
+
+      is: 'x-tap',
+
+      listeners: {
+        'tap': 'regularTap',
+        'special.tap': 'specialTap'
+      },
+
+      regularTap: function(e) {
+        console.log("tap inside host");
+      },
+      specialTap: function(e) {
+        console.log("Blue Tap");
+      },
+
+      buttonClick: function(e) {
+        console.log("button click");
+        e.stopPropagation();
+      },
+
+
+    });
+        </script>
+
+    </dom-module>
+</body>
+
+</html>
