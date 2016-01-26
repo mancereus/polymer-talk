@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>03 lifecycle</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="draggable-behavior/draggable-behavior.html">
+</head>
+
+<body>
+    <hello-name id="13">
+        <b style="color: red;">World</b>
+    </hello-name>
+
+
+
+    <dom-module id="hello-name">
+        <template>
+            <div style="text-align:center; width: 140px;border: 1px solid black; user-select: none;">
+                Hello <content/>
+            </div>
+        </template>
+
+        <script>
+            Polymer({
+                is: "hello-name",
+            behaviors: [
+                DraggableBehavior
+            ]
+
+            });
+        </script>
+
+    </dom-module>
+</body>
+
+</html>

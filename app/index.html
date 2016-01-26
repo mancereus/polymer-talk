@@ -680,6 +680,7 @@ function HelloController($scope) {
                     <li>observer: functionName</li>
                     <li>notify: true|false (2way data-binding)</li>
                     <li>readOnly: true|false</li>
+                    <li>reflectToAttribute: true|false</li>
                 </ul>
             </section>
             <section>
@@ -703,7 +704,6 @@ function HelloController($scope) {
                 <h2>Beispiel Data Binding</h2>
                 <ul>
                     <li><a href="demo/03binding.html" target="blank">Data binding properties</a></li>
-                    <li><a href="demo/03bindObject.html" target="blank">Data binding Object</a></li>
                 </ul>
             </section>
             <section>
@@ -712,7 +712,6 @@ function HelloController($scope) {
                     <li>template is=dom-repeat</li>
                     <li>template is=dom-if</li>
                     <li>filter und sort support</li>
-                    <li>Polymer.dom API </li>
                 </ul>
             </section>
             <section>
@@ -722,22 +721,11 @@ function HelloController($scope) {
                 </ul>
             </section>
             <section>
-                <h2>Data Binding Object</h2>
-                <ul>
-                    <li>observer</li>
-                    <li>notifypath</li>
-                </ul>
-            </section>
-            <section>
-                <h2>Beispiel Data Binding Object</h2>
-                <ul>
-                    <li><a href="demo/03object.html" target="blank">Data binding Object</a></li>
-                </ul>
-            </section>
-            <section>
-                <h2>Element Lifecycle</h2>
+                <h2>Element Lifecycle and Polymer.base</h2>
                 <ul>
                     <li>WebComponent Callbacks</li>
+                    <li>Jedes Polymer Element erbt von Polymer.base API </li>
+                    <li>https://www.polymer-project.org/1.0/api/ </li>
                 </ul>
             </section>
             <section>
@@ -786,21 +774,27 @@ function HelloController($scope) {
             </section>
             <section>
                 <h2>Layout und Custom Styling</h2>
-                <p>wie kann man shadow von aussen stylen?</p>
+                <p>layout über iron-flex-layout.html</p>
+                <p>styling von aussen mit css @apply</p>
+
             </section>
             <section>
                 <h2>Beispiel Layout und Styling</h2>
                 <ul>
+                     <li><a href="demo/06layout.html" target="blank">Layout beispiele</a></li>
+                     <li><a href="demo/06styling.html" target="blank">Inject Styling</a></li>
                 </ul>
             </section>
             <section>
                 <h2>Mixins durch Behavior</h2>
+                <p>Integration von gewünschten </p>
                 <p>Integration ARIA</p>
-                <p>Integration I18N</p>
             </section>
             <section>
                 <h2>Beispiel Behavior</h2>
-                <p>draggable</p>
+                <ul>
+                     <li><a href="demo/07behavior.html" target="blank">draggable</a></li>
+                </ul>
             </section>
             <section>
                 <h2>Data Elements</h2>
@@ -809,15 +803,18 @@ function HelloController($scope) {
             </section>
             <section>
                 <h2>Beispiel Polymer Web Anwendung</h2>
-                <p><a href="https://gaming.youtube.com/">YouTube Gaming</a><br>
-                    <a href="http://vmgreed.scoop-gmbh.de/?url=hosts/">SCOOP Admin</a></p>
+                <p>
+                    <a href="https://gaming.youtube.com/" target="blank">YouTube Gaming</a><br>
+                    <a href="http://mancereus.github.io/greenhell/" target="blank">Brettspiele</a><br>
+                    <a href="http://vmgreed.scoop-gmbh.de/?url=hosts/" target="blank">SCOOP Admin</a>
+                </p>
             </section>
             <section>
                 <h2>Komponentenbibliothek</h2>
                 <p>gesammelte Web Components findet man unter:</p>
                 <ul>
-                    <li>https://customelements.io/</li>
-                    <li>https://elements.polymer-project.org/</li>
+                    <li><a href="https://customelements.io/">https://customelements.io/</a></li>
+                    <li><a href="https://elements.polymer-project.org/">https://elements.polymer-project.org/</a></li>
                 </ul>
                 <p>einfache Integration über: "bower install"</p>
                 <p> gute Beispiele: https://codelabs.developers.google.com/polymer-summit</p>
@@ -825,13 +822,20 @@ function HelloController($scope) {
             <section>
                 <h2>Debugging</h2>
                 <ul>
-                    <li>"polylint" findet übliche fehler</li>
                     <li>$0 in DevTools</li>
                     <li>Source Code aller Komponenten vorhanden.</li>
                     <li>Breakpoints im Browser</li>
                     <li>oder Remote Debugging</li>
                 </ul>
                 <p>einfache Integration über: "bower install"</p>
+            </section>
+            <section>
+                <h2>häufige Fehler</h2>
+                <ul>
+                    <li>html import vergessen</li>
+                    <li>binding to native elements value="{{val::input}}"</li>
+                </ul>
+                <p>"polylint" findet häufige fehler, aber nicht sehr ausgereift.</p>
             </section>
             <section>
                 <h2>Produktionsdeployment</h2>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>listener</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+    <link rel="import" href="../../bower_components/iron-flex-layout/iron-flex-layout.html">
+</head>
+
+<body>
+
+    <div class="flex horizontal">
+        <my-toolbar title="default. no extra styling"></my-toolbar>
+        <my-element></my-element>
+    </div>
+    <dom-module id="my-toolbar">
+        <template>
+            <style>
+                :host {
+                    padding: 4px;
+                    margin: 0 5px;
+                    background-color: gray;
+                    /* apply a mixin */
+                    @apply(--my-toolbar-theme);
+                }
+
+                .title {
+                    @apply(--my-toolbar-title-theme);
+                }
+            </style>
+            <span class="title">{{title}}</span>
+        </template>
+        <script>
+            Polymer({ is: 'my-toolbar'});
+        </script>
+    </dom-module>
+
+    <dom-module id="my-element">
+        <template>
+            <style>
+                /* Apply custom theme to toolbars */
+
+                :host {
+                    --my-toolbar-theme: {
+                        background-color: lightblue;
+                        border-radius: 4px;
+                        border: 1px solid gray;
+                    }
+                    ;
+                    --my-toolbar-title-theme: {
+                        color: green;
+                    }
+                    ;
+                }
+                /* Make only toolbars with the .warning class red and bold */
+
+                .warning {
+                    --my-toolbar-title-theme: {
+                        color: red;
+                        font-weight: bold;
+                    }
+                    ;
+                }
+            </style>
+            <my-toolbar title="inject styling."></my-toolbar>
+
+            <my-toolbar class="warning" title="inject styling 2."></my-toolbar>
+
+        </template>
+
+        <script>
+            Polymer({ is: 'my-element'});
+        </script>
+
+    </dom-module>
+</body>
+
+</html>
