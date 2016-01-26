@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>new Element</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="../../bower_components/font-roboto/roboto.html">
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+
+    <style>
+        body {
+            font-family: Roboto, 'Noto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="tmpl" is="dom-bind">
+        <greeting-card user="{{user}}" color="deepskyblue"></greeting-card>
+    </template>
+    <script>
+        var template = document.getElementById("tmpl");
+        template.user = {first: "Michael", last: "Austermann"}
+    </script>
+
+    <dom-module id="greeting-card">
+        <template>
+            <style is="custom-style">
+                div {
+                    margin: 12px;
+                    width: 400px;
+                    height: 120px;
+                    padding: 20px;
+                    text-align: center;
+                    border: 1px solid black;
+                    background-color: deepskyblue;
+                }
+                /* CSS rules for your element */
+            </style>
+
+            <div>{{upperCase(greeting)}}
+                <br>
+                <span>{{user.last}}, {{user.first}}</span>
+                <br>
+                <br>
+                <button on-click="setUser">Change User</button>
+                <input type="text" value="{{newUserLast::input}}" disabled='{{!active}}'>
+                <input type="checkbox" checked="{{active::change}}"> editable
+            </div>
+        </template>
+        <script>
+            // returns Constructor
+       Polymer({
+            is: "greeting-card",
+
+            properties: {
+                greeting: {
+                    type: String,
+                    value: "Hello"
+                },
+                user: {
+                    type: Object,
+                },
+                active: {
+                    type:Boolean,
+                    value: false
+                },
+                newUserLast:{
+                    type: String,
+                    value: "Schäfers"
+                }
+            },
+            upperCase: function(greeting) {
+                return greeting.toUpperCase();
+            },
+            setUser: function() {
+                this.user.last = this.newUserLast;
+                this.notifyPath('user.last', this.user.last);
+            }
+        }
+
+            );
+        </script>
+
+    </dom-module>
+
+</body>
+
+</html>

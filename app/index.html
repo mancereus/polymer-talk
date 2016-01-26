@@ -690,8 +690,21 @@ function HelloController($scope) {
             </section>
             <section>
                 <h2>Data Binding</h2>
-                <p>{{name}} two-way</p>
-                <p>[[name]] one-way</p>
+                <ul>
+                    <li>{{name}} two-way oder [[name]] one-way</li>
+                    <li>{{name::change-event}}bind to native element &lt;input> </li>
+                    <li>{{user.name}} bind structured data</li>
+                    <li>class$='{{classname}}' attribute binding mit $= statt =</li>
+                    <li>{{translate('Hello', first, last)}} function binding</li>
+                    <li>this.notifyPath('user.last') for object binding</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Beispiel Data Binding</h2>
+                <ul>
+                    <li><a href="demo/03binding.html" target="blank">Data binding properties</a></li>
+                    <li><a href="demo/03bindObject.html" target="blank">Data binding Object</a></li>
+                </ul>
             </section>
             <section>
                 <h2>Data Binding Array</h2>
@@ -807,6 +820,7 @@ function HelloController($scope) {
                     <li>https://elements.polymer-project.org/</li>
                 </ul>
                 <p>einfache Integration über: "bower install"</p>
+                <p> gute Beispiele: https://codelabs.developers.google.com/polymer-summit</p>
             </section>
             <section>
                 <h2>Debugging</h2>
