@@ -229,12 +229,12 @@
                         <li>Element Registrierung kann auch nach der Verwendung erfolgen!</li>
                         <li>Element startet als HtmlUnknownElement und wechselt nach Registrierung den Prototype</li>
                         <li>&lt;p is="x-foo"> Attribute ist unschön.</li>
-                        <li>Accessibility für custom-element ohne is="" fehlt</li>
+                        <li>HtmlElement Properties für custom-element ohne is="" fehlt</li>
                     </ul>
             </section>
             <section>
                 <h2><img  style="vertical-align:middle" data-src="img/icon-customelements.png"> Custom Elements</h2>
-                <p>Callbacks beim Erzeugen des custom Elements</p>
+                <p>Callbacks des custom elements</p>
                 <table style="font-size: 70%">
                     <thead>
                         <tr>
@@ -402,7 +402,7 @@
 
             <section>
                 <h2>Shadow DOM - Example</h2>
-                <a href="demo/shadowcss.html" target="_blank">Shadow DOM</a>
+                <a href="demo/04shadowcss.html" target="_blank">Shadow DOM</a>
             </section>
             <section>
                 <h2>Web Components</h2>
@@ -450,12 +450,13 @@
 
             <section>
                 <h2>Web Components Frameworks</h2>
-                <p>Die folgenden Libraries und Frameworks verwenden die Web Components Specs:</p>
+                <p>Die folgenden Libraries und Frameworks verwendet Web Components:</p>
                 <ul>
                     <li>x-tag (ex-Mozilla, nun Microsoft)</li>
                     <li>bosonic</li>
                     <li>Polymer (Google)</li>
                 </ul>
+                <p>Sie vereinfachen das Arbeiten mit Web Components.</p>
             </section>
             <section>
                 <h2>Interoperabilität</h2>
@@ -491,7 +492,8 @@
             <section>
                 <h2>Fachliche Anforderungen</h2>
                 <ul>
-                    <li>Komponente: Charts, Eingabe mit Validierung</li>
+                    <li>Komponente: Eingabe mit Validierung</li>
+                    <li>Komponente: Charts</li>
                     <li>Komponente: Table mit Sorting, Paging, Filter</li>
                     <li>Internationalisierung</li>
                     <li>Behindertengerecht, ARIA, HighContrast</li>
@@ -508,12 +510,12 @@
                 <ul>
                     <li>Framework nutzt Features der Browser Engine.</li>
                     <li>Trennung in Html, CSS, JS</li>
-                    <li>Template Engine</li>
+                    <li>Template Engine im Browser</li>
                     <li>Data Binding: one-way und two-way</li>
                     <li>frei verfügbare umfangreiche Komponentenbibliothek</li>
                     <li>Support für Layout</li>
                     <li>Komponenten mit anpassbarem Styling.</li>
-                    <li>Navigation in SPA mit History</li>
+                    <li>Routing und Navigation in SPA mit History</li>
                    <li>Support für zukünftige Features: Offline, locale Storage, WebWorker, Push Notification</li>
                 </ul>
             </section>
@@ -521,10 +523,10 @@
                 <h2>Entwicklung Anforderungen</h2>
                 <ul>
                     <li>Framework mit Dokumentation, Beispiele</li>
-                    <li>Kompatibilität mit anderen Frameworks (Jquery integrierbar,..)</li>
+                    <li>Kompatibilität mit anderen Frameworks (JQuery, ...)</li>
                     <li>sehr gute Performance und Memory Consumption</li>
-                    <li>IDE Support</li>
                     <li>einfacher Download und Einbindung von Komponenten</li>
+                    <li>IDE Support</li>
                     <li>ES6 oder TypeScript Support</li>
                     <li>Debugging und Error Handling im Browser und IDE</li>
                     <li>Mapping Data Structure zwischen Server and Client</li>
@@ -538,8 +540,7 @@
                     <li>Template Engine standardisiert in Browser</li>
                     <li>mächtiges neues HTML Konzept: custom elements</li>
                     <li>Komponenten über custom elements</li>
-                    <li>einfache API</li>
-                    <li>Default DOM Framework</li>
+                    <li>einfache DOM API</li>
                 </ul>
             </section>
             <section>
@@ -579,7 +580,7 @@ function HelloController($scope) {
                 <p>Pro:</p>
                 <ul style="color: green">
                     <li>eigene Template Engine</li>
-                    <li>one-way two-way data binding</li>
+                    <li>one-way und two-way data binding</li>
                     <li>SPA, modularer Aufbau</li>
                     <li>MVC mit $scope (Angular 1)</li>
                     <li>Komponenten über Directives</li>
@@ -605,13 +606,19 @@ function HelloController($scope) {
                 <h1>Teil 3: Praxis</h1>
                 <img style="height: 100px;" data-src="img/polymer.svg">
                 <br>
-                <a href="http://polymer-project.org">http://polymer-project.org</a>
-
+                <a href="http://polymer-project.org" target="blank">http://polymer-project.org</a>
+                <br>
+                <ul>
+                    <li>von Google (wie Angular oder GWT)</li>
+                    <li>seit 2013 bis Version 0.5</li>
+                    <li>Umbruch Version 1.0 seit 2015</li>
+                    <li>aktuell Version 1.2.3</li>
+                </ul>
             </section>
             <section>
                 <h2>Polymer Erfahrungen</h2>
                 <ul>
-                    <li>Polymer Konferenz in Amsterdam</li>
+                    <li>Polymer Summit Konferenz in Amsterdam Sep. 2015</li>
                     <li>Polymer in privaten und internen Projekten</li>
                     <img data-src="img/conference.png">
                 </ul>
@@ -632,7 +639,11 @@ function HelloController($scope) {
             </section>
             <section>
                 <h2>Polymer Definition</h2>
-                <p>Polymer Elemente werden in einen html-file definiert:</p>
+                <ul>
+                    <li>&lt;dom-module> registriert neues custom element.</li>
+                    <li>template für das Document fragment</li>
+                    <li>Polymer({}) zum Definieren der Properties, Methoden,...</li>
+                </ul>
                 <pre><code>    //x-name.html
     <dom-module id="x-name">
         // shadow DOM
@@ -659,7 +670,7 @@ function HelloController($scope) {
                 <ul>
                     <li><a href="demo/01helloworld.html" target="blank">Polymer Hello World</a></li>
                     <li><a href="demo/01helloworld2.html" target="blank">Polymer Hello World with content</a></li>
-                    <li><a href="demo/01helloworld3.html" target="blank">Polymer extends input</a></li>
+                    <li><a href="demo/01helloworld3.html" target="blank">Polymer Hello World extends input</a></li>
                 </ul>
             </section>
             <section>
